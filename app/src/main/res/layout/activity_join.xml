@@ -54,15 +54,37 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/Arrow_rule" />
 
+            <CheckBox
+                android:id="@+id/check"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/check_box"
+                android:button="@null"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_rule"/>
+
+            <TextView
+                android:text="이용약관에 동의하시겠습니까?"
+                android:textColor="@color/black"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toEndOf="@+id/check"
+                app:layout_constraintTop_toBottomOf="@+id/tv_rule" />
             <ImageView
                 android:id="@+id/Arrow_StName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:src="@drawable/arrow_blue"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_rule" />
+                app:layout_constraintTop_toBottomOf="@+id/check" />
 
             <TextView
                 android:layout_width="wrap_content"
