@@ -27,8 +27,9 @@ class JoinActivity : AppCompatActivity() {
             return@setOnTouchListener false
         }
         tv_rule?.setOnScrollChangeListener { view, scrollX, scrollY, oldScrollX, oldScrolly ->
-            if (tv_rule?.canScrollVertically(1)) {
+            if (!tv_rule.canScrollVertically(1)) {
                 RuleCheck.isEnabled = true
+                Toast.makeText(this, "end", Toast.LENGTH_SHORT).show()
             }
         }
         JoinBtn.setOnClickListener {
