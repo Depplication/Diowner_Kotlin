@@ -235,7 +235,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/round_gray"
-                    android:src="@drawable/eyes"
+                    android:src="@drawable/hidden"
                     android:tag="0"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
