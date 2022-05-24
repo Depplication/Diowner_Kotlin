@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private fun settingText(){
         JoinText.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
-        val ssb = SpannableStringBuilder("Dion")
+        val ssb = SpannableStringBuilder("Diowner")
         ssb.apply {
             setSpan(ForegroundColorSpan(getColor(R.color.MainColor)), 0,1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         }
