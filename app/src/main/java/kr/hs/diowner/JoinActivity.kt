@@ -54,14 +54,24 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
 
         val sv : ScrollView? = findViewById(R.id.scroll)
         val tv_rule = findViewById<TextView>(R.id.tv_rule)
+        val tv_check = findViewById<TextView>(R.id.tv_check)
         tv_rule.setMovementMethod(ScrollingMovementMethod()) // 스크롤 가능하게 해주는 부분
         tv_rule?.setOnTouchListener { v, event ->
-            sv?.requestDisallowInterceptTouchEvent(true)//부모 scroll 권한 빼는 부분
+            sv?.requestDisallowInterceptTouchEvent(true)//부모 scroll 권한 빼는 부분)
             return@setOnTouchListener false
         }
         tv_rule?.setOnScrollChangeListener { view, scrollX, scrollY, oldScrollX, oldScrolly ->
             if (!tv_rule.canScrollVertically(1)) {
                 RuleCheck.isEnabled = true
+                if (RuleCheck.isEnabled){
+                    tv_check.setOnClickListener {
+                        if(RuleCheck.isChecked){
+                            RuleCheck.isChecked = false
+                        }else{
+                            RuleCheck.isChecked = true
+                        }
+                    }
+                }
                 //Toast.makeText(this, "end", Toast.LENGTH_SHORT).show()
             }
         }
@@ -96,9 +106,9 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
     private fun CheckJoin() {
-        if (!Pattern.matches("^(?=.*[A-Za-z])(?=.*[0-9]).{5,11}.\$", IdEt.text.toString())) {
+        if (!Pattern.matches("^(?=.*[A-Za-z]).{5,11}.\$", IdEt.text.toString())) {
             IdEt.requestFocus()
-            Toast.makeText(this, "아이디는 6~12자 문자와 숫자가 필수로 포함되어야합니다.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "아이디는 6~12자 사이여야합니다.", Toast.LENGTH_SHORT).show()
         }else if(!RuleCheck.isChecked){
             RuleCheck.requestFocus()
             Toast.makeText(this, "이용약관에 동의 하지 않으셨습니다.", Toast.LENGTH_SHORT).show()

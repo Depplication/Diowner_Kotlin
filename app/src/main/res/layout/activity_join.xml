@@ -68,6 +68,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_rule"/>
 
             <TextView
+                android:id="@+id/tv_check"
                 android:text="이용약관에 동의하시겠습니까?"
                 android:textColor="@color/black"
                 android:layout_width="290dp"
