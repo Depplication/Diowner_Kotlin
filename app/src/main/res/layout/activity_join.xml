@@ -58,7 +58,7 @@
                 android:id="@+id/check"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/check_box"
                 android:button="@null"
@@ -232,8 +232,8 @@
 
                 <ImageView
                     android:id="@+id/Pw_Toggle"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:background="@drawable/round_gray"
                     android:src="@drawable/hidden"
                     android:tag="0"
