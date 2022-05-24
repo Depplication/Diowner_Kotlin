@@ -13,4 +13,6 @@
     <color name="RoundGray">#D1D2DB</color>
     <color name="RoundBlue">#627FE4</color>
     <color name="MainColor">#627FE4</color>
+    <color name="TextScrollNow">#9C9A9A</color>
+    <color name="TextScroll">#BCBBBB</color>
 </resources>

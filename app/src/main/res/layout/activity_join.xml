@@ -7,6 +7,7 @@
     tools:context=".JoinActivity">
 
     <ScrollView
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -17,7 +18,7 @@
             android:focusableInTouchMode="true">
 
             <ImageView
-                android:id="@+id/Arrow_StName"
+                android:id="@+id/Arrow_rule"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -25,6 +26,44 @@
                 android:src="@drawable/arrow_blue"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="이용약관"
+                android:textColor="@color/TextGray"
+                app:layout_constraintBottom_toBottomOf="@id/Arrow_rule"
+                app:layout_constraintStart_toEndOf="@id/Arrow_rule"
+                app:layout_constraintTop_toTopOf="@id/Arrow_rule" />
+
+            <TextView
+                android:id="@+id/tv_rule"
+                android:layout_width="320dp"
+                android:layout_height="315dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_gray"
+                android:paddingStart="5dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:scrollbars="vertical"
+                android:text="@string/rule"
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/Arrow_rule" />
+
+            <ImageView
+                android:id="@+id/Arrow_StName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/arrow_blue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_rule" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,7 +92,7 @@
                 app:layout_constraintTop_toBottomOf="@id/Arrow_StName" />
 
             <ImageView
-                android:id="@+id/Arrow_Id"
+                android:id="@+id/Arrow_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -61,6 +100,42 @@
                 android:src="@drawable/arrow_blue"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/StName_ET" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="대표자명"
+                android:textColor="@color/TextGray"
+                app:layout_constraintBottom_toBottomOf="@id/Arrow_name"
+                app:layout_constraintStart_toEndOf="@id/Arrow_name"
+                app:layout_constraintTop_toTopOf="@id/Arrow_name" />
+
+            <EditText
+                android:id="@+id/Name_ET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/round_gray"
+                android:hint="대표자명을 입력하세요."
+                android:paddingStart="15dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:singleLine="true"
+                android:textColorHint="@color/TextHint"
+                android:textSize="13sp"
+                app:layout_constraintTop_toBottomOf="@id/Arrow_name" />
+            <ImageView
+                android:id="@+id/Arrow_Id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/arrow_blue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Name_ET" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -123,26 +198,26 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/round_gray"
-                    app:layout_constraintEnd_toStartOf="@id/Pw_Toggle"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:hint="비밀번호를 입력하세요."
                     android:paddingStart="15dp"
                     android:paddingTop="20dp"
                     android:paddingBottom="20dp"
                     android:singleLine="true"
                     android:textColorHint="@color/TextHint"
-                    android:textSize="13sp"/>
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@id/Pw_Toggle"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <ImageView
-                    android:tag="0"
                     android:id="@+id/Pw_Toggle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/round_gray"
+                    android:src="@drawable/eyes"
+                    android:tag="0"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/ic_baseline_visibility_off_24"
-                    android:background="@drawable/round_gray"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
@@ -263,7 +338,6 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/round_blue"
                 android:paddingTop="15dp"
@@ -272,6 +346,7 @@
                 android:textColor="@color/TextPurple"
                 android:textSize="30sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Address_ET" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
