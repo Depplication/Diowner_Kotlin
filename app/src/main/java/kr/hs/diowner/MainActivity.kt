@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     val My_Btn : Button by lazy {
@@ -13,11 +14,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     val Register_Btn : Button by lazy {
         findViewById(R.id.register)
     }
+    val name : TextView by lazy {
+        findViewById(R.id.name_id)
+    }
+    val nowPoint : TextView by lazy {
+        findViewById(R.id.nowPoint)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         settingListener()
+        name.text = "익명 아이디"
+        nowPoint.text = "8P"
     }
     private fun settingListener(){
         My_Btn.setOnClickListener(this)
@@ -31,7 +40,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
             Register_Btn -> {
-                val intent = Intent(this, Register_Btn::class.java)
+                val intent = Intent(this, RegisterActivity::class.java)
                 startActivity(intent)
             }
         }

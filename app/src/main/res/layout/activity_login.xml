@@ -25,7 +25,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintVertical_chainStyle="packed"
-                app:layout_constraintBottom_toTopOf="@id/Arrow_Pw"
+                app:layout_constraintBottom_toTopOf="@id/Id_ET"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
