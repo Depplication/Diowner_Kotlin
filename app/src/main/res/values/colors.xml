@@ -16,4 +16,5 @@
     <color name="TextScrollNow">#9C9A9A</color>
     <color name="TextScroll">#BCBBBB</color>
     <color name="pointText">#ABACAF</color>
+    <color name="my_spinner_text_color">#D1D3E4</color>
 </resources>
