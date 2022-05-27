@@ -4,9 +4,9 @@
     android:id="@+id/tvItemSpinner"
     android:layout_width="match_parent"
     android:layout_height="45dp"
-    android:paddingTop="15dp"
+    android:layout_marginTop="5dp"
     android:layout_marginEnd="5dp"
-    android:gravity="right"
-    android:paddingStart="15dp"
+    android:layout_marginStart="5dp"
+    android:gravity="center|center_vertical"
     android:textColor="@color/my_spinner_text_color"
     android:textSize="15sp" />
