@@ -1,352 +1,359 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".JoinActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="33dp"
-        android:text="광고등록"
-        android:textColor="#5D5E6A"
-        android:textSize="25sp" />
-
-    <ScrollView
-        android:id="@+id/scroll"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".JoinActivity">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="33dp"
+            android:text="광고등록"
+            android:textColor="#5D5E6A"
+            android:textSize="25sp" />
+
+        <ScrollView
+            android:id="@+id/scroll"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:focusable="true"
-            android:focusableInTouchMode="true">
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/Arrow_avName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="15dp"
-                android:src="@drawable/arrow_blue"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="광고제목"
-                android:textColor="@color/TextGray"
-                app:layout_constraintBottom_toBottomOf="@id/Arrow_avName"
-                app:layout_constraintStart_toEndOf="@id/Arrow_avName"
-                app:layout_constraintTop_toTopOf="@id/Arrow_avName" />
-
-            <EditText
-                android:id="@+id/StName_ET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/round_gray"
-                android:hint="광고제목을 입력하세요."
-                android:paddingStart="15dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:singleLine="true"
-                android:textColorHint="@color/TextHint"
-                android:textSize="13sp"
-                app:layout_constraintTop_toBottomOf="@id/Arrow_avName" />
-
-            <ImageView
-                android:id="@+id/Arrow_business"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:src="@drawable/arrow_blue"
-                app:layout_constraintStart_toStartOf="@id/Arrow_avName"
-                app:layout_constraintTop_toBottomOf="@id/StName_ET" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="사업자 등록번호/주민등록번호"
-                android:textColor="@color/TextGray"
-                app:layout_constraintBottom_toBottomOf="@id/Arrow_business"
-                app:layout_constraintStart_toEndOf="@id/Arrow_business"
-                app:layout_constraintTop_toTopOf="@id/Arrow_business" />
-
-            <EditText
-                android:id="@+id/businessNum_ET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/round_gray"
-                android:hint="사업자 등록번호/주민등록번호(개인일 경우)"
-                android:paddingStart="15dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:singleLine="true"
-                android:textColorHint="@color/TextHint"
-                android:textSize="13sp"
-                app:layout_constraintTop_toBottomOf="@id/Arrow_business" />
-
-            <ImageView
-                android:id="@+id/Arrow_represent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:src="@drawable/arrow_blue"
-                app:layout_constraintStart_toStartOf="@id/Arrow_avName"
-                app:layout_constraintTop_toBottomOf="@id/businessNum_ET" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="대표자명"
-                android:textColor="@color/TextGray"
-                app:layout_constraintBottom_toBottomOf="@id/Arrow_represent"
-                app:layout_constraintStart_toEndOf="@id/Arrow_represent"
-                app:layout_constraintTop_toTopOf="@id/Arrow_represent" />
-
-            <EditText
-                android:id="@+id/represent_ET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/round_gray"
-                android:hint="대표자명을 입력하세요."
-                android:paddingStart="15dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:singleLine="true"
-                android:textColorHint="@color/TextHint"
-                android:textSize="13sp"
-                app:layout_constraintTop_toBottomOf="@id/Arrow_represent" />
-
-            <ImageView
-                android:id="@+id/Arrow_mail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:src="@drawable/arrow_blue"
-                app:layout_constraintStart_toStartOf="@id/Arrow_avName"
-                app:layout_constraintTop_toBottomOf="@id/represent_ET" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="이메일"
-                android:textColor="@color/TextGray"
-                app:layout_constraintBottom_toBottomOf="@id/Arrow_mail"
-                app:layout_constraintStart_toEndOf="@id/Arrow_mail"
-                app:layout_constraintTop_toTopOf="@id/Arrow_mail" />
-
-            <EditText
-                android:id="@+id/mail_ET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/round_gray"
-                android:hint="이메일을 입력하세요."
-                android:paddingStart="15dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:singleLine="true"
-                android:textColorHint="@color/TextHint"
-                android:textSize="13sp"
-                app:layout_constraintTop_toBottomOf="@id/Arrow_mail" />
-
-            <ImageView
-                android:id="@+id/Arrow_period"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:src="@drawable/arrow_blue"
-                app:layout_constraintStart_toStartOf="@id/Arrow_avName"
-                app:layout_constraintTop_toBottomOf="@id/mail_ET" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="광고기간"
-                android:textColor="@color/TextGray"
-                app:layout_constraintBottom_toBottomOf="@id/Arrow_period"
-                app:layout_constraintStart_toEndOf="@id/Arrow_period"
-                app:layout_constraintTop_toTopOf="@id/Arrow_period" />
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_marginTop="5dp"
-                android:id="@+id/Date_layout"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Arrow_period"
-                app:layout_constraintBottom_toTopOf="@id/Arrow_store"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/tv_startDay"
-                    android:layout_width="105dp"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/round_left_gray"
-                    android:gravity="center_vertical"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/BtnLayout"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    android:hint="시작일"
-                    android:textSize="10dp" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/BtnLayout"
-                    android:layout_width="25dp"
-                    android:layout_height="0dp"
-                    android:background="@drawable/round_right_gray"
-                    android:padding="5dp"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_startDay"
-                    app:layout_constraintEnd_toStartOf="@id/wave"
-                    app:layout_constraintStart_toEndOf="@id/tv_startDay"
-                    app:layout_constraintTop_toTopOf="@id/tv_startDay">
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/firstDayBtn"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginEnd="2dp"
-                        android:layout_marginBottom="2dp"
-                        android:background="@drawable/ic_date"
-                        android:scaleX="0.6"
-                        android:scaleY="0.6"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <TextView
-                    android:id="@+id/wave"
+                <ImageView
+                    android:id="@+id/Arrow_avName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="~"
-                    app:layout_constraintBottom_toBottomOf="@id/BtnLayout"
-                    app:layout_constraintEnd_toStartOf="@id/tv_endDay"
-                    app:layout_constraintStart_toEndOf="@id/BtnLayout"
-                    app:layout_constraintTop_toTopOf="@id/tv_startDay" />
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/arrow_blue"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_endDay"
-                    android:layout_width="105dp"
-                    android:layout_height="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="광고제목"
+                    android:textColor="@color/TextGray"
+                    app:layout_constraintBottom_toBottomOf="@id/Arrow_avName"
+                    app:layout_constraintStart_toEndOf="@id/Arrow_avName"
+                    app:layout_constraintTop_toTopOf="@id/Arrow_avName" />
+
+                <EditText
+                    android:id="@+id/StName_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:background="@drawable/round_left_gray"
-                    android:gravity="center_vertical"
-                    android:hint="종료일"
-                    android:textSize="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_startDay"
-                    app:layout_constraintEnd_toStartOf="@id/BtnLayout2"
-                    app:layout_constraintStart_toEndOf="@id/wave"
-                    app:layout_constraintTop_toTopOf="@id/tv_startDay" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/round_gray"
+                    android:hint="광고제목을 입력하세요."
+                    android:paddingStart="15dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:singleLine="true"
+                    android:textColorHint="@color/TextHint"
+                    android:textSize="13sp"
+                    app:layout_constraintTop_toBottomOf="@id/Arrow_avName" />
+
+                <ImageView
+                    android:id="@+id/Arrow_business"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/arrow_blue"
+                    app:layout_constraintStart_toStartOf="@id/Arrow_avName"
+                    app:layout_constraintTop_toBottomOf="@id/StName_ET" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="사업자 등록번호/주민등록번호"
+                    android:textColor="@color/TextGray"
+                    app:layout_constraintBottom_toBottomOf="@id/Arrow_business"
+                    app:layout_constraintStart_toEndOf="@id/Arrow_business"
+                    app:layout_constraintTop_toTopOf="@id/Arrow_business" />
+
+                <EditText
+                    android:id="@+id/businessNum_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/round_gray"
+                    android:hint="사업자 등록번호/주민등록번호(개인일 경우)"
+                    android:paddingStart="15dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:singleLine="true"
+                    android:textColorHint="@color/TextHint"
+                    android:textSize="13sp"
+                    app:layout_constraintTop_toBottomOf="@id/Arrow_business" />
+
+                <ImageView
+                    android:id="@+id/Arrow_represent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/arrow_blue"
+                    app:layout_constraintStart_toStartOf="@id/Arrow_avName"
+                    app:layout_constraintTop_toBottomOf="@id/businessNum_ET" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="대표자명"
+                    android:textColor="@color/TextGray"
+                    app:layout_constraintBottom_toBottomOf="@id/Arrow_represent"
+                    app:layout_constraintStart_toEndOf="@id/Arrow_represent"
+                    app:layout_constraintTop_toTopOf="@id/Arrow_represent" />
+
+                <EditText
+                    android:id="@+id/represent_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/round_gray"
+                    android:hint="대표자명을 입력하세요."
+                    android:paddingStart="15dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:singleLine="true"
+                    android:textColorHint="@color/TextHint"
+                    android:textSize="13sp"
+                    app:layout_constraintTop_toBottomOf="@id/Arrow_represent" />
+
+                <ImageView
+                    android:id="@+id/Arrow_mail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/arrow_blue"
+                    app:layout_constraintStart_toStartOf="@id/Arrow_avName"
+                    app:layout_constraintTop_toBottomOf="@id/represent_ET" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="이메일"
+                    android:textColor="@color/TextGray"
+                    app:layout_constraintBottom_toBottomOf="@id/Arrow_mail"
+                    app:layout_constraintStart_toEndOf="@id/Arrow_mail"
+                    app:layout_constraintTop_toTopOf="@id/Arrow_mail" />
+
+                <EditText
+                    android:id="@+id/mail_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/round_gray"
+                    android:hint="이메일을 입력하세요."
+                    android:paddingStart="15dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:singleLine="true"
+                    android:textColorHint="@color/TextHint"
+                    android:textSize="13sp"
+                    app:layout_constraintTop_toBottomOf="@id/Arrow_mail" />
+
+                <ImageView
+                    android:id="@+id/Arrow_period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/arrow_blue"
+                    app:layout_constraintStart_toStartOf="@id/Arrow_avName"
+                    app:layout_constraintTop_toBottomOf="@id/mail_ET" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="광고기간"
+                    android:textColor="@color/TextGray"
+                    app:layout_constraintBottom_toBottomOf="@id/Arrow_period"
+                    app:layout_constraintStart_toEndOf="@id/Arrow_period"
+                    app:layout_constraintTop_toTopOf="@id/Arrow_period" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/BtnLayout2"
-                    android:layout_width="25dp"
-                    android:layout_height="0dp"
-                    android:background="@drawable/round_right_gray"
-                    android:padding="5dp"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_endDay"
+                    android:id="@+id/Date_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="25dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@id/Arrow_store"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/tv_endDay"
-                    app:layout_constraintTop_toTopOf="@id/tv_endDay">
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/Arrow_period">
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/endDayBtn"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginEnd="2dp"
-                        android:layout_marginBottom="2dp"
-                        android:background="@drawable/ic_date"
-                        android:scaleX="0.6"
-                        android:scaleY="0.6"
+                    <TextView
+                        android:id="@+id/tv_startDay"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/round_left_gray"
+                        android:gravity="center_vertical"
+                        android:hint="시작일"
+                        android:textSize="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/BtnLayout"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/BtnLayout"
+                        android:layout_width="25dp"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/round_right_gray"
+                        android:padding="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_startDay"
+                        app:layout_constraintEnd_toStartOf="@id/wave"
+                        app:layout_constraintStart_toEndOf="@id/tv_startDay"
+                        app:layout_constraintTop_toTopOf="@id/tv_startDay"
+                        app:layout_constraintVertical_bias="0.0">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/firstDayBtn"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:background="@drawable/ic_date"
+                            android:scaleX="0.6"
+                            android:scaleY="0.6"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/wave"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="~"
+                        android:textSize="20dp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_startDay"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tv_startDay" />
+
+                    <TextView
+                        android:id="@+id/tv_endDay"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="16dp"
+                        android:background="@drawable/round_left_gray"
+                        android:gravity="center_vertical"
+                        android:hint="종료일"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_startDay"
+                        app:layout_constraintEnd_toStartOf="@id/BtnLayout2"
+                        app:layout_constraintStart_toEndOf="@id/wave"
+                        app:layout_constraintTop_toTopOf="@id/tv_startDay" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/BtnLayout2"
+                        android:layout_width="25dp"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/round_right_gray"
+                        android:padding="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_endDay"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_endDay"
+                        app:layout_constraintTop_toTopOf="@id/tv_endDay">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/endDayBtn"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:background="@drawable/ic_date"
+                            android:scaleX="0.6"
+                            android:scaleY="0.6"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <ImageView
+                    android:id="@+id/Arrow_store"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/arrow_blue"
+                    app:layout_constraintStart_toStartOf="@id/Arrow_avName"
+                    app:layout_constraintTop_toBottomOf="@id/Date_layout" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="상점소개"
+                    android:textColor="@color/TextGray"
+                    app:layout_constraintBottom_toBottomOf="@id/Arrow_store"
+                    app:layout_constraintStart_toEndOf="@id/Arrow_store"
+                    app:layout_constraintTop_toTopOf="@id/Arrow_store" />
+
+                <Spinner
+                    android:id="@+id/event_sp"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/spinner"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown"
+                    android:textColor="@color/TextGray"
+                    android:textSize="10dp"
+                    android:theme="@style/mySpinnerItemStyle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/Arrow_store" />
+
+                <EditText
+                    android:id="@+id/store_et"
+                    android:layout_width="0dp"
+                    android:layout_height="323dp"
+                    android:background="@drawable/round_down_gray"
+                    android:gravity="top"
+                    android:hint="설명을 적어주세요."
+                    android:textSize="13dp"
+                    app:layout_constraintEnd_toEndOf="@id/event_sp"
+                    app:layout_constraintStart_toStartOf="@id/event_sp"
+                    app:layout_constraintTop_toBottomOf="@id/event_sp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </ScrollView>
 
-            <ImageView
-                android:id="@+id/Arrow_store"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:src="@drawable/arrow_blue"
-                app:layout_constraintStart_toStartOf="@id/Arrow_avName"
-                app:layout_constraintTop_toBottomOf="@id/Date_layout" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="상점소개"
-                android:textColor="@color/TextGray"
-                app:layout_constraintBottom_toBottomOf="@id/Arrow_store"
-                app:layout_constraintStart_toEndOf="@id/Arrow_store"
-                app:layout_constraintTop_toTopOf="@id/Arrow_store" />
-
-            <Spinner
-                android:id="@+id/event_sp"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="12dp"
-                android:background="@drawable/spinner"
-                android:gravity="center"
-                android:textSize="10dp"
-                android:textColor="@color/TextGray"
-                android:spinnerMode="dropdown"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Arrow_store"
-                android:theme="@style/mySpinnerItemStyle"/>
-
-            <EditText
-                android:id="@+id/store_et"
-                android:layout_width="0dp"
-                android:layout_height="323dp"
-                android:background="@drawable/round_down_gray"
-                android:gravity="top"
-                android:hint="설명을 적어주세요."
-                android:textSize="13dp"
-                app:layout_constraintEnd_toEndOf="@id/event_sp"
-                app:layout_constraintStart_toStartOf="@id/event_sp"
-                app:layout_constraintTop_toBottomOf="@id/event_sp" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
-
-</LinearLayout>
+    </LinearLayout>
 </layout>

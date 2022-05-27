@@ -18,13 +18,12 @@ import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
 import kr.hs.diowner.databinding.ActivityRegisterBinding
 import java.util.*
+import kotlin.properties.Delegates
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private var calendar = Calendar.getInstance()
-    private var year = calendar.get(Calendar.YEAR)
-    private var month = calendar.get(Calendar.MONTH)
-    private var day = calendar.get(Calendar.DAY_OF_MONTH)
+    private var result : Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,19 +47,22 @@ class RegisterActivity : AppCompatActivity() {
             val datePicker = builder.build()
 
             datePicker.addOnPositiveButtonClickListener {
-                val calendar = Calendar.getInstance()
+                calendar
                 calendar.time = Date(it)
                 val calendarMilli = calendar.timeInMillis
                 binding.tvStartDay.text = "${calendar.get(Calendar.YEAR)}/${calendar.get(Calendar.MONTH) + 1}/${calendar.get(Calendar.DAY_OF_MONTH)}"
                 editor.putLong("first_date", calendarMilli)
                 editor.commit()
                 Log.d("Die_Millis", "$calendarMilli")
+                this.result = sharedPreference.getLong("first_date", 0)
             }
             datePicker.show(supportFragmentManager, datePicker.toString())
         }
-        val calenderConstraintBuilder2 = CalendarConstraints.Builder()
-        calenderConstraintBuilder2.setValidator(DateValidatorPointForward.from(sharedPreference.getLong("first_date", 0)))
+
         binding.endDayBtn.setOnClickListener {
+            val calenderConstraintBuilder2 = CalendarConstraints.Builder()
+            calenderConstraintBuilder2.setValidator(DateValidatorPointForward.from(result+1))
+            Log.d("test", this.result.toString())
             val builder = MaterialDatePicker.Builder.datePicker()
                 .setTitleText("select_end_day")
                 .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
@@ -69,14 +71,11 @@ class RegisterActivity : AppCompatActivity() {
             val datePicker = builder.build()
 
             datePicker.addOnPositiveButtonClickListener {
-                val calendar = Calendar.getInstance()
+                calendar
                 calendar.time = Date(it)
                 val calendarMilli = calendar.timeInMillis
                 binding.tvEndDay.text = "${calendar.get(Calendar.YEAR)}/${calendar.get(Calendar.MONTH) + 1}/${calendar.get(Calendar.DAY_OF_MONTH)}"
-                editor.putLong("end_date", calendarMilli)
-                editor.apply()
-                Log.d("Die_Millis", "$calendarMilli")
-            }
+                }
             datePicker.show(supportFragmentManager, datePicker.toString())
         }
     }

@@ -41,10 +41,10 @@
                 android:id="@+id/tv_rule"
                 android:layout_width="0dp"
                 android:layout_height="315dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/round_gray"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
+                android:background="@drawable/round_gray"
                 android:paddingStart="5dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
@@ -67,18 +67,19 @@
                 android:checked="false"
                 android:enabled="false"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_rule"/>
+                app:layout_constraintTop_toBottomOf="@+id/tv_rule" />
 
             <TextView
                 android:id="@+id/tv_check"
-                android:text="이용약관에 동의하시겠습니까?"
-                android:textColor="@color/black"
                 android:layout_width="290dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
                 android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:text="이용약관에 동의하시겠습니까?"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toEndOf="@+id/check"
                 app:layout_constraintTop_toBottomOf="@+id/tv_rule" />
+
             <ImageView
                 android:id="@+id/Arrow_StName"
                 android:layout_width="wrap_content"
@@ -152,6 +153,7 @@
                 android:textColorHint="@color/TextHint"
                 android:textSize="13sp"
                 app:layout_constraintTop_toBottomOf="@id/Arrow_name" />
+
             <ImageView
                 android:id="@+id/Arrow_Id"
                 android:layout_width="wrap_content"
@@ -311,6 +313,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/round_gray"
                 android:hint="전화번호를 입력하세요."
+                android:inputType="number"
                 android:paddingStart="15dp"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp"
