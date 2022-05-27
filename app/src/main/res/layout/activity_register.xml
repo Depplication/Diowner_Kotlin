@@ -346,11 +346,122 @@
                     android:layout_height="323dp"
                     android:background="@drawable/round_down_gray"
                     android:gravity="top"
-                    android:hint="설명을 적어주세요."
+                    android:hint="자신의 상점을 자유롭게 설명해주세요!"
+                    android:textColorHint="@color/hintColor"
                     android:textSize="13dp"
                     app:layout_constraintEnd_toEndOf="@id/event_sp"
                     app:layout_constraintStart_toStartOf="@id/event_sp"
                     app:layout_constraintTop_toBottomOf="@id/event_sp" />
+                <ImageView
+                    android:id="@+id/Arrow_goods"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/arrow_blue"
+                    app:layout_constraintStart_toStartOf="@id/Arrow_avName"
+                    app:layout_constraintTop_toBottomOf="@id/store_et" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="주요상품등록"
+                    android:textColor="@color/TextGray"
+                    app:layout_constraintBottom_toBottomOf="@id/Arrow_goods"
+                    app:layout_constraintStart_toEndOf="@id/Arrow_goods"
+                    app:layout_constraintTop_toTopOf="@id/Arrow_goods" />
+                <TextView
+                    android:id="@+id/tv_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/round_left_gray"
+                    android:hint="  파일을 선택하세요"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColorHint="@color/TextHint"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@id/Arrow_goods" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/img_btn_layout"
+                    android:layout_width="40dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/round_right_gray"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_img"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_img"
+                    app:layout_constraintTop_toTopOf="@id/tv_img">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/imgBtn"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/ic_img_a"
+                        android:scaleX="0.6"
+                        android:scaleY="0.6"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <EditText
+                    android:id="@+id/goods_et"
+                    android:layout_width="0dp"
+                    android:layout_height="122dp"
+                    android:layout_marginTop="3dp"
+                    android:textSize="15sp"
+                    android:hint=" 상품에 대해 설명해주세요"
+                    android:gravity="top"
+                    android:textColorHint="@color/hintColor"
+                    android:background="@drawable/round_gray"
+                    app:layout_constraintStart_toStartOf="@id/tv_img"
+                    app:layout_constraintEnd_toEndOf="@id/img_btn_layout"
+                    app:layout_constraintTop_toBottomOf="@id/tv_img"/>
+                <EditText
+                    android:id="@+id/goods_price"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="3dp"
+                    android:textSize="15sp"
+                    android:hint=" 판매가격"
+                    android:textColorHint="@color/hintColor"
+                    android:background="@drawable/round_gray"
+                    app:layout_constraintStart_toStartOf="@id/tv_img"
+                    app:layout_constraintEnd_toEndOf="@id/img_btn_layout"
+                    app:layout_constraintTop_toBottomOf="@id/goods_et"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/add_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:text="+ 상품추가 등록하기"
+                    android:textSize="10sp"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/hintColor"
+                    android:gravity="left|center_vertical"
+                    android:background="@drawable/round_gray"
+                    app:layout_constraintStart_toStartOf="@id/goods_price"
+                    app:layout_constraintTop_toBottomOf="@id/goods_price"
+                    app:layout_constraintEnd_toEndOf="@id/goods_price"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/register_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/round_blue"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="등록하기"
+                    android:textColor="@color/MainColor"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/add_btn"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>

@@ -2,6 +2,7 @@ package kr.hs.diowner
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +30,11 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
+        binding.registerBtn.setOnClickListener {
+            val intent = Intent(this, MyActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         setSpinner()
         showdate()
     }

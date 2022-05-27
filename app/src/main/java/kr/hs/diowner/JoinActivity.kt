@@ -60,16 +60,17 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
             sv?.requestDisallowInterceptTouchEvent(true)//부모 scroll 권한 빼는 부분)
             return@setOnTouchListener false
         }
+        tv_check.setOnClickListener {
+            if(RuleCheck.isEnabled == false){
+                Toast.makeText(this, "이용약관 스크롤 후 시도해주세요.", Toast.LENGTH_SHORT).show()
+            }
+        }
         tv_rule?.setOnScrollChangeListener { view, scrollX, scrollY, oldScrollX, oldScrolly ->
             if (!tv_rule.canScrollVertically(1)) {
                 RuleCheck.isEnabled = true
                 if (RuleCheck.isEnabled){
                     tv_check.setOnClickListener {
-                        if(RuleCheck.isChecked){
-                            RuleCheck.isChecked = false
-                        }else{
-                            RuleCheck.isChecked = true
-                        }
+                        RuleCheck.isChecked = !RuleCheck.isChecked
                     }
                 }
                 //Toast.makeText(this, "end", Toast.LENGTH_SHORT).show()
