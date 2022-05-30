@@ -201,7 +201,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="25dp"
                     android:orientation="horizontal"
-                    app:layout_constraintBottom_toTopOf="@id/Arrow_store"
+                    app:layout_constraintBottom_toTopOf="@id/Arrow_mainImg"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/Arrow_period">
@@ -303,15 +303,162 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <ImageView
+                    android:layout_marginTop="12dp"
+                    android:id="@+id/Arrow_mainImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow_blue"
+                    app:layout_constraintStart_toStartOf="@id/Arrow_avName"
+                    app:layout_constraintTop_toBottomOf="@id/Date_layout"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="메인사진"
+                    android:textColor="@color/TextGray"
+                    app:layout_constraintBottom_toBottomOf="@id/Arrow_mainImg"
+                    app:layout_constraintStart_toEndOf="@id/Arrow_mainImg"
+                    app:layout_constraintTop_toTopOf="@id/Arrow_mainImg"/>
+                <TextView
+                    android:id="@+id/mainImgHint"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="최대 3장까지 업로드가 가능합니다"
+                    android:textSize="5sp"
+                    app:layout_constraintStart_toStartOf="@id/Arrow_mainImg"
+                    app:layout_constraintTop_toBottomOf="@id/Arrow_mainImg"/>
+                <TextView
+                    android:id="@+id/tv_mainImg1"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/round_left_gray"
+                    android:paddingStart="12dp"
+                    android:hint="파일을 선택하세요"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColorHint="@color/TextHint"
+                    android:textSize="12sp"
+                    app:layout_constraintTop_toBottomOf="@id/mainImgHint" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/mainImgBtn_layout1"
+                    android:layout_width="40dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/round_right_gray"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_mainImg1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_mainImg1"
+                    app:layout_constraintTop_toTopOf="@id/tv_mainImg1">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/mainImgBtn1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/ic_img_a"
+                        android:scaleX="0.9"
+                        android:scaleY="0.8"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tv_mainImg2"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/round_left_gray"
+                    android:paddingStart="12dp"
+                    android:hint="파일을 선택하세요"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColorHint="@color/TextHint"
+                    android:textSize="12sp"
+                    app:layout_constraintTop_toBottomOf="@id/mainImgBtn_layout1" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/mainImgBtn_layout2"
+                    android:layout_width="40dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/round_right_gray"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_mainImg2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_mainImg2"
+                    app:layout_constraintTop_toTopOf="@id/tv_mainImg2">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/mainImgBtn2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/ic_img_a"
+                        android:scaleX="0.9"
+                        android:scaleY="0.8"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tv_mainImg3"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/round_left_gray"
+                    android:paddingStart="12dp"
+                    android:hint="파일을 선택하세요"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColorHint="@color/TextHint"
+                    android:textSize="12sp"
+                    app:layout_constraintTop_toBottomOf="@id/mainImgBtn_layout2" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/mainImgBtn_layout3"
+                    android:layout_width="40dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/round_right_gray"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_mainImg3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_mainImg3"
+                    app:layout_constraintTop_toTopOf="@id/tv_mainImg3">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/mainImgBtn3"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/ic_img_a"
+                        android:scaleX="0.9"
+                        android:scaleY="0.8"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <ImageView
                     android:id="@+id/Arrow_store"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="15dp"
                     android:src="@drawable/arrow_blue"
                     app:layout_constraintStart_toStartOf="@id/Arrow_avName"
-                    app:layout_constraintTop_toBottomOf="@id/Date_layout" />
+                    app:layout_constraintTop_toBottomOf="@id/mainImgBtn_layout3" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -346,6 +493,8 @@
                     android:layout_height="323dp"
                     android:background="@drawable/round_down_gray"
                     android:gravity="top"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
                     android:hint="자신의 상점을 자유롭게 설명해주세요!"
                     android:textColorHint="@color/hintColor"
                     android:textSize="13dp"
@@ -374,14 +523,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="36dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="30dp"
+                    android:layout_marginTop="5dp"
                     android:background="@drawable/round_left_gray"
-                    android:hint="  파일을 선택하세요"
+                    android:paddingStart="12dp"
+                    android:hint="파일을 선택하세요"
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textColorHint="@color/TextHint"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     app:layout_constraintTop_toBottomOf="@id/Arrow_goods" />
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/img_btn_layout"
@@ -389,7 +539,6 @@
                     android:layout_height="0dp"
                     android:layout_marginEnd="30dp"
                     android:background="@drawable/round_right_gray"
-                    android:padding="5dp"
                     app:layout_constraintBottom_toBottomOf="@id/tv_img"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tv_img"
@@ -402,8 +551,8 @@
                         android:layout_marginEnd="2dp"
                         android:layout_marginTop="2dp"
                         android:background="@drawable/ic_img_a"
-                        android:scaleX="0.6"
-                        android:scaleY="0.6"
+                        android:scaleX="0.9"
+                        android:scaleY="0.8"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -414,8 +563,9 @@
                     android:layout_width="0dp"
                     android:layout_height="122dp"
                     android:layout_marginTop="3dp"
-                    android:textSize="15sp"
-                    android:hint=" 상품에 대해 설명해주세요"
+                    android:textSize="12sp"
+                    android:paddingStart="5dp"
+                    android:hint="상품에 대해 설명해주세요"
                     android:gravity="top"
                     android:textColorHint="@color/hintColor"
                     android:background="@drawable/round_gray"
@@ -427,8 +577,9 @@
                     android:layout_width="0dp"
                     android:layout_height="35dp"
                     android:layout_marginTop="3dp"
-                    android:textSize="15sp"
-                    android:hint=" 판매가격"
+                    android:textSize="10sp"
+                    android:paddingStart="5dp"
+                    android:hint="판매가격"
                     android:textColorHint="@color/hintColor"
                     android:background="@drawable/round_gray"
                     app:layout_constraintStart_toStartOf="@id/tv_img"
