@@ -13,15 +13,17 @@ import android.view.ActionMode
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
 import kr.hs.diowner.databinding.ActivityRegisterBinding
 import java.util.*
+import java.util.regex.Pattern
 import kotlin.properties.Delegates
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
     private lateinit var binding: ActivityRegisterBinding
     private var calendar = Calendar.getInstance()
     private var result : Long = 0
@@ -30,6 +32,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
+        settingListener()
         binding.registerBtn.setOnClickListener {
             val intent = Intent(this, MyActivity::class.java)
             startActivity(intent)
@@ -148,5 +151,43 @@ class RegisterActivity : AppCompatActivity() {
             dipValue,
             resources.displayMetrics
         )
+    }
+    private fun settingListener(){
+        binding.registerBtn.setOnClickListener(this)
+    }
+    override fun onClick(view: View?) {
+        when(view){
+            binding.registerBtn -> {
+                CheckRegister()
+            }
+        }
+    }
+    private fun CheckRegister(){
+        if(binding.StNameET.text.isNullOrBlank()){
+            binding.StNameET.requestFocus()
+            Toast.makeText(this, "광고 제목을 입력해주세요.", Toast.LENGTH_SHORT).show()
+        }else if (!Pattern.matches("^(?=.[0-9].\$)", binding.businessNumET.text.toString())){
+            binding.businessNumET.requestFocus()
+            Toast.makeText(this, "사업자 등록번호를 바르게 입력해주세요.", Toast.LENGTH_SHORT).show()
+        }else if (binding.representET.text.isNullOrBlank()){
+            binding.representET.requestFocus()
+            Toast.makeText(this, "대표자명을 입력하여 주세요.", Toast.LENGTH_SHORT).show()
+        }else if (binding.mailET.text.isNullOrBlank()){
+            binding.mailET.requestFocus()
+            Toast.makeText(this, "e-mail을 입력하여 주세요.", Toast.LENGTH_SHORT).show()
+        }else if (binding.tvStartDay.text.isNullOrBlank() || binding.tvEndDay.text.isNullOrBlank()){
+            binding.tvStartDay.requestFocus()
+            Toast.makeText(this, "광고 표시기간을 설정해 주세요.", Toast.LENGTH_SHORT).show()
+        }else if (!binding.eventSp.equals(0)&&!binding.eventSp.equals(1)&&!binding.eventSp.equals(2)){
+            binding.eventSp.requestFocus()
+            Toast.makeText(this, "이벤트 종류를 선택해 주세요.", Toast.LENGTH_SHORT).show()
+        }else if(binding.storeEt.text.isNullOrBlank()){
+            binding.storeEt.requestFocus()
+            Toast.makeText(this, "상점 설명을 적어주세요.", Toast.LENGTH_SHORT).show()
+        }else {
+            startActivity(Intent(this, MyActivity::class.java))
+            Toast.makeText(this, "등록 성공!!", Toast.LENGTH_SHORT).show()
+            finish()
+        }
     }
 }
