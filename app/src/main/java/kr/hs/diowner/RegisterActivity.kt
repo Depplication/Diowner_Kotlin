@@ -28,20 +28,20 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
     private var calendar = Calendar.getInstance()
     private var result : Long = 0
 
+    private val StNameEt : EditText by lazy {
+        findViewById(R.id.StName_ET)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
         settingListener()
-        binding.registerBtn.setOnClickListener {
-            val intent = Intent(this, MyActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
         setSpinner()
         showdate()
     }
-
+    //TODO 주요상품 등록 구현
+    //TODO 사진등록 구현
     private fun showdate() {
         val calenderConstraintBuilder = CalendarConstraints.Builder()
         calenderConstraintBuilder.setValidator(DateValidatorPointForward.now())
@@ -127,7 +127,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
                 position: Int,
                 id: Long
             ) {
-
+                //TODO 스피너 선택시 값처리 구현하기
                 when (position) {
                     0 -> Log.d("test", position.toString())
 
@@ -163,10 +163,11 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
         }
     }
     private fun CheckRegister(){
-        if(binding.StNameET.text.isNullOrBlank()){
-            binding.StNameET.requestFocus()
+        if(StNameEt.text.isNullOrBlank()){
+            Log.d("test_check", "error1")
+            StNameEt.requestFocus()
             Toast.makeText(this, "광고 제목을 입력해주세요.", Toast.LENGTH_SHORT).show()
-        }else if (!Pattern.matches("^(?=.[0-9].\$)", binding.businessNumET.text.toString())){
+        }else if (!Pattern.matches("^(?:\\d{10})\$", binding.businessNumET.text.toString())){
             binding.businessNumET.requestFocus()
             Toast.makeText(this, "사업자 등록번호를 바르게 입력해주세요.", Toast.LENGTH_SHORT).show()
         }else if (binding.representET.text.isNullOrBlank()){
@@ -185,9 +186,11 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
             binding.storeEt.requestFocus()
             Toast.makeText(this, "상점 설명을 적어주세요.", Toast.LENGTH_SHORT).show()
         }else {
-            startActivity(Intent(this, MyActivity::class.java))
+            Log.d("test_check", "pass")
+            val intent = Intent(this, MyActivity::class.java)
             Toast.makeText(this, "등록 성공!!", Toast.LENGTH_SHORT).show()
             finish()
+            startActivity(intent)
         }
     }
 }

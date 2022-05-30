@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     val My_Btn : Button by lazy {
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     val nowPoint : TextView by lazy {
         findViewById(R.id.nowPoint)
     }
+    private var backpressedTime : Long = 0L
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -45,4 +48,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
+
+    override fun onBackPressed() {
+        if(System.currentTimeMillis() - backpressedTime >= 1500 ){
+            backpressedTime = System.currentTimeMillis()
+            Toast.makeText(this, "뒤로가기 버튼을 한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
+        }else{
+            finish()
+        }
+    }
+
+
 }

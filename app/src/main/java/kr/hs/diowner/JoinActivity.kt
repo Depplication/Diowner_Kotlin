@@ -113,7 +113,7 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
         }else if(!RuleCheck.isChecked){
             RuleCheck.requestFocus()
             Toast.makeText(this, "이용약관에 동의 하지 않으셨습니다.", Toast.LENGTH_SHORT).show()
-        }        else if(StName_ET.text.isNullOrBlank()){
+        }else if(StName_ET.text.isNullOrBlank()){
             StName_ET.requestFocus()
             Toast.makeText(this, "상점명란이 비었습니다", Toast.LENGTH_SHORT).show()
         }else if (Name_ET.text.isNullOrBlank()){
