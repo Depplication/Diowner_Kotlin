@@ -129,7 +129,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
             ) {
                 //TODO 스피너 선택시 값처리 구현하기
                 when (position) {
-                    0 -> Log.d("test", position.toString())
+                    0 -> Toast.makeText(this@RegisterActivity, "첫번째 spinner입니다.", Toast.LENGTH_SHORT).show()
 
                     1 -> Log.d("test", position.toString())
 
