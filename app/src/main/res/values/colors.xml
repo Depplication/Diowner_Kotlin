@@ -8,11 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="TextGray">#5D5E6A</color>
-    <color name="TextHint">#D1D3E4</color>
+    <color name="TextHint">#71727B</color>
     <color name="TextPurple">#221A86</color>
-    <color name="RoundGray">#D1D2DB</color>
+    <color name="RoundGray">#71727B</color>
     <color name="RoundBlue">#627FE4</color>
-    <color name="MainColor">#627FE4</color>
+    <color name="MainColor">#FF7372</color>
     <color name="TextScrollNow">#9C9A9A</color>
     <color name="TextScroll">#BCBBBB</color>
     <color name="pointText">#ABACAF</color>

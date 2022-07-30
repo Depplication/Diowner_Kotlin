@@ -34,8 +34,8 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         settingListener()
         setSpinner()
         showdate()

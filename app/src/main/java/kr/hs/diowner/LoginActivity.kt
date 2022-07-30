@@ -4,14 +4,13 @@ import android.content.Intent
 import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableStringBuilder
-import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import kr.hs.diowner.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
+    private lateinit var binding: ActivityLoginBinding
     val MainTitle : TextView by lazy {
         findViewById(R.id.Main_Title)
     }
@@ -23,12 +22,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-
-        settingText()
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setting()
         settingListener()
     }
-    private fun settingText(){
+    private fun setting(){
+        binding.tvId.bringToFront()
+        binding.tvPw.bringToFront()
+        binding.JoinText.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+    }
+    /*private fun settingText(){
         JoinText.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
         val ssb = SpannableStringBuilder("Diowner")
@@ -36,7 +40,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             setSpan(ForegroundColorSpan(getColor(R.color.MainColor)), 0,1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         }
         MainTitle.text = ssb
-    }
+    }*/
     private fun settingListener(){
         LoginBtn.setOnClickListener(this)
         JoinText.setOnClickListener(this)
@@ -45,6 +49,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?){
         when(view){
             LoginBtn -> {
+                //TODO 로그인 구현
                 val intent = Intent(this, MainActivity::class.java)
                 finish()
                 startActivity(intent)
