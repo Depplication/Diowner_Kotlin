@@ -1,27 +1,22 @@
 package kr.hs.diowner
 
-import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.TypedValue
-import android.view.ActionMode
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.view.get
-import androidx.databinding.DataBindingUtil
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
 import kr.hs.diowner.databinding.ActivityRegisterBinding
 import java.util.*
 import java.util.regex.Pattern
-import kotlin.properties.Delegates
+
 
 class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
     private lateinit var binding: ActivityRegisterBinding
@@ -62,7 +57,6 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
                 binding.tvStartDay.text = "${calendar.get(Calendar.YEAR)}/${calendar.get(Calendar.MONTH) + 1}/${calendar.get(Calendar.DAY_OF_MONTH)}"
                 editor.putLong("first_date", calendarMilli)
                 editor.commit()
-                Log.d("Die_Millis", "$calendarMilli")
                 this.result = sharedPreference.getLong("first_date", 0)
             }
             datePicker.show(supportFragmentManager, datePicker.toString())
@@ -71,7 +65,6 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
         binding.endDayBtn.setOnClickListener {
             val calenderConstraintBuilder2 = CalendarConstraints.Builder()
             calenderConstraintBuilder2.setValidator(DateValidatorPointForward.from(result+1))
-            Log.d("test", this.result.toString())
             val builder = MaterialDatePicker.Builder.datePicker()
                 .setTitleText("select_end_day")
                 .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
@@ -131,11 +124,11 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
                 when (position) {
                     0 -> Toast.makeText(this@RegisterActivity, "첫번째 spinner입니다.", Toast.LENGTH_SHORT).show()
 
-                    1 -> Log.d("test", position.toString())
+                    1 -> Toast.makeText(this@RegisterActivity, "두번째", Toast.LENGTH_SHORT).show()
 
-                    2 -> Log.d("test", position.toString())
+                    2 -> Toast.makeText(this@RegisterActivity, "세번째", Toast.LENGTH_SHORT).show()
                     else -> {
-                        Log.d("test_error", position.toString())
+                        Toast.makeText(this@RegisterActivity, "에러", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

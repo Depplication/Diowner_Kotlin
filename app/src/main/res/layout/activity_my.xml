@@ -127,13 +127,16 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
+
         <LinearLayout
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/point_layout"
-            android:layout_marginTop="40dp"
+            android:id="@+id/btn_layout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/point_layout">
+
             <LinearLayout
                 android:id="@+id/payment_layout"
                 android:layout_width="wrap_content"
@@ -141,17 +144,20 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent">
+
                 <ImageView
-                    android:src="@drawable/payment"
                     android:layout_width="25dp"
-                    android:layout_height="25dp"/>
+                    android:layout_height="25dp"
+                    android:src="@drawable/payment" />
+
                 <TextView
-                    android:text="포인트 충전 및 결제"
-                    android:textSize="10dp"
-                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="포인트 충전 및 결제"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/exchange_layout"
                 android:layout_width="82dp"
@@ -161,18 +167,76 @@
                 android:orientation="vertical"
                 app:layout_constraintStart_toEndOf="@id/payment_layout"
                 app:layout_constraintTop_toBottomOf="@id/point_layout">
+
                 <ImageView
-                    android:src="@drawable/exchange"
                     android:layout_width="25dp"
-                    android:layout_height="25dp"/>
+                    android:layout_height="25dp"
+                    android:src="@drawable/exchange" />
+
                 <TextView
-                    android:text="포인트 교환"
-                    android:textSize="10dp"
-                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="포인트 교환"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
             </LinearLayout>
         </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="40dp"
+            android:background="#F2BBB8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_layout">
+
+            <ImageView
+                android:id="@+id/line_img"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:src="@drawable/line"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/today_save_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line_img">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="오늘의 적립내역"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/downarrow" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/today_save_layout"
+                tools:listitem="@layout/today_point_list" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
