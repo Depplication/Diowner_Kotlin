@@ -1,12 +1,14 @@
 package kr.hs.diowner
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import kr.hs.diowner.data.PointData
 import kr.hs.diowner.databinding.ActivityMyBinding
 
-class MyActivity : AppCompatActivity() {
+class MyActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMyBinding
 
     val mDatas = mutableListOf<PointData>(
@@ -22,6 +24,17 @@ class MyActivity : AppCompatActivity() {
 
         initDataRecyclerView()
         addDataRecyclerView()
+        settingListener()
+    }
+
+    private fun settingListener(){
+        binding.settingImg.setOnClickListener(this)
+        binding.myAdLayout.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        //TODO 메뉴구현하기
+        //TODO 내 광고 화면 만들고 이어주기
     }
 
     private fun initDataRecyclerView() {

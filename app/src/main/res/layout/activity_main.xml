@@ -35,6 +35,16 @@
             android:src="@drawable/round_scarlet"
             app:layout_constraintStart_toStartOf="@id/tv_title"
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
+        
+        <ImageView
+            android:src="@drawable/dugong"
+            app:layout_constraintStart_toEndOf="@id/line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="101dp"
+            android:layout_marginEnd="40dp"
+            android:layout_width="102dp"
+            android:layout_height="179dp"/>
 
         <TextView
             android:id="@+id/tv_pointTitle"
