@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diowner">
         <activity
+            android:name=".ModifyActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false"
-            android:theme="@style/CreateProfileTheme"/>
+            android:theme="@style/CreateProfileTheme" />
         <activity
             android:name=".MyActivity"
             android:exported="false" />
