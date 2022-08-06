@@ -159,7 +159,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/exchange_layout"
+                android:id="@+id/log_layout"
                 android:layout_width="82dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="90dp"
@@ -176,7 +176,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="포인트 교환"
+                    android:text="포인트 내역"
                     android:textColor="@color/black"
                     android:textSize="10dp" />
             </LinearLayout>

@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diowner">
         <activity
+            android:name=".MyAdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PointLogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PointPaymentActivity"
+            android:exported="false" />
+        <activity
             android:name=".ModifyActivity"
             android:exported="false" />
         <activity

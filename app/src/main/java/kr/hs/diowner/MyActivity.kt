@@ -34,16 +34,30 @@ class MyActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.OnMenuIt
     private fun settingListener() {
         binding.settingImg.setOnClickListener(this)
         binding.myAdLayout.setOnClickListener(this)
+        binding.paymentLayout.setOnClickListener(this)
+        binding.logLayout.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         //TODO 메뉴구현하기
+        //TODO 내 광고 화면 만들고 이어주기
         when (v) {
             binding.settingImg -> {
                 showPopup(binding.settingImg)
             }
+            binding.myAdLayout -> {
+                val intent = Intent(this, MyAdActivity::class.java)
+                startActivity(intent)
+            }
+            binding.paymentLayout -> {
+                val intent = Intent(this, PointPaymentActivity::class.java)
+                startActivity(intent)
+            }
+            binding.logLayout -> {
+                val intent = Intent(this, PointLogActivity::class.java)
+                startActivity(intent)
+            }
         }
-        //TODO 내 광고 화면 만들고 이어주기
     }
 
     private fun showPopup(v: View) {
