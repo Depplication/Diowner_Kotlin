@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diowner">
         <activity
+            android:name=".ChoiceBank"
+            android:exported="false" />
+        <activity
             android:name=".MyAdActivity"
             android:exported="false" />
         <activity

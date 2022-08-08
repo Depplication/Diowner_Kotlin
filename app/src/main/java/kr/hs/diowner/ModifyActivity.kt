@@ -34,6 +34,7 @@ class ModifyActivity : AppCompatActivity(), View.OnClickListener {
         binding.backBtn.setOnClickListener(this)
         binding.searchBtn.setOnClickListener(this)
         binding.changeBtn.setOnClickListener(this)
+        binding.choiceBtn.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -46,6 +47,10 @@ class ModifyActivity : AppCompatActivity(), View.OnClickListener {
             }
             binding.changeBtn -> {
                 checkModify()
+            }
+            binding.choiceBtn -> {
+                val intent = Intent(this, ChoiceBank::class.java)
+                startActivity(intent)
             }
         }
     }

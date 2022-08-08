@@ -203,6 +203,16 @@
         android:textSize="10sp"
         app:layout_constraintTop_toTopOf="@id/tv_bank" />
 
+    <ImageView
+        android:id="@+id/choice_btn"
+        android:layout_width="13dp"
+        android:layout_height="15dp"
+        android:rotation="-90"
+        android:src="@drawable/downarrow"
+        app:layout_constraintBottom_toBottomOf="@id/bank_ET"
+        app:layout_constraintEnd_toEndOf="@id/search_btn"
+        app:layout_constraintTop_toTopOf="@id/bank_ET" />
+
     <TextView
         android:id="@+id/tv_account"
         android:layout_width="28dp"
