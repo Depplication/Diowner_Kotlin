@@ -11,15 +11,16 @@ import kr.hs.diowner.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityLoginBinding
-    val MainTitle : TextView by lazy {
+    val MainTitle: TextView by lazy {
         findViewById(R.id.Main_Title)
     }
-    val JoinText : TextView by lazy {
+    val JoinText: TextView by lazy {
         findViewById(R.id.Join_Text)
     }
-    val LoginBtn : Button by lazy {
+    val LoginBtn: Button by lazy {
         findViewById(R.id.Login_Btn)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -27,11 +28,13 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         setting()
         settingListener()
     }
-    private fun setting(){
+
+    private fun setting() {
         binding.tvId.bringToFront()
         binding.tvPw.bringToFront()
         binding.JoinText.paintFlags = Paint.UNDERLINE_TEXT_FLAG
     }
+
     /*private fun settingText(){
         JoinText.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
@@ -41,13 +44,13 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         }
         MainTitle.text = ssb
     }*/
-    private fun settingListener(){
+    private fun settingListener() {
         LoginBtn.setOnClickListener(this)
         JoinText.setOnClickListener(this)
     }
 
-    override fun onClick(view: View?){
-        when(view){
+    override fun onClick(view: View?) {
+        when (view) {
             LoginBtn -> {
                 //TODO 로그인 구현
                 val intent = Intent(this, MainActivity::class.java)
