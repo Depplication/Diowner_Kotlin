@@ -115,10 +115,10 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
             Toast.makeText(this, "이용약관에 동의 하지 않으셨습니다.", Toast.LENGTH_SHORT).show()
         }else if(StName_ET.text.isNullOrBlank()){
             StName_ET.requestFocus()
-            Toast.makeText(this, "상점명 란이 비었습니다", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "상점 명란이 비었습니다", Toast.LENGTH_SHORT).show()
         }else if (Name_ET.text.isNullOrBlank()){
             Name_ET.requestFocus()
-            Toast.makeText(this, "대표자명 란이 비었습니다", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "대표자명란이 비었습니다", Toast.LENGTH_SHORT).show()
         }else if (!Pattern.matches("^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[\$@\$!%*#?&]).{7,14}.\$", PwEt.text.toString())) {
             PwEt.requestFocus()
             Toast.makeText(this, "비밀번호는 8~15자 문자와 숫자, 특수문자가 필수로 포함되어야합니다.", Toast.LENGTH_SHORT).show()
