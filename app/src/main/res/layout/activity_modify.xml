@@ -7,7 +7,7 @@
     tools:context=".ModifyActivity">
 
     <ImageView
-        android:id="@+id/left_arrow"
+        android:id="@+id/back_btn"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="40dp"
@@ -23,9 +23,9 @@
         android:text="정보수정"
         android:textColor="@color/black"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@id/left_arrow"
-        app:layout_constraintStart_toEndOf="@id/left_arrow"
-        app:layout_constraintTop_toTopOf="@id/left_arrow" />
+        app:layout_constraintBottom_toBottomOf="@id/back_btn"
+        app:layout_constraintStart_toEndOf="@id/back_btn"
+        app:layout_constraintTop_toTopOf="@id/back_btn" />
 
     <TextView
         android:id="@+id/tv_name"
@@ -40,7 +40,7 @@
         android:textSize="10sp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/left_arrow" />
+        app:layout_constraintTop_toBottomOf="@id/back_btn" />
 
     <EditText
         android:id="@+id/name_ET"
