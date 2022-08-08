@@ -32,6 +32,7 @@ class ModifyActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun settingListener() {
         binding.backBtn.setOnClickListener(this)
+        binding.searchBtn.setOnClickListener(this)
         binding.changeBtn.setOnClickListener(this)
     }
 
@@ -39,6 +40,9 @@ class ModifyActivity : AppCompatActivity(), View.OnClickListener {
         when (v) {
             binding.backBtn -> {
                 finish()
+            }
+            binding.searchBtn -> {
+                //TODO 다음 우편번호 api 적용하기
             }
             binding.changeBtn -> {
                 checkModify()

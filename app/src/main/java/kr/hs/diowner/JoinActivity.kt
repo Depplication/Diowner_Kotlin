@@ -135,10 +135,8 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
             //TODO 인증번호 확인
         } else {
             //서버에 포스트...
-            val intent = Intent(this, LoginActivity::class.java)
             Toast.makeText(this,"회원가입 성공!", Toast.LENGTH_SHORT).show()
             finish()
-            startActivity(intent)
         }
     }
 }
