@@ -70,10 +70,8 @@ class ModifyActivity : AppCompatActivity(), View.OnClickListener {
             Toast.makeText(this, "계좌번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
         }else {
             //서버에 포스트
-            val intent = Intent(this, MyActivity::class.java)
             Toast.makeText(this, "정보가 변경되었습니다.", Toast.LENGTH_SHORT).show()
             finish()
-            startActivity(intent)
         }
     }
 

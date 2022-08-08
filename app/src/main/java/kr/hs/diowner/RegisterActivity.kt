@@ -32,7 +32,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         settingListener()
-        setSpinner()
+        //setSpinner()
         showdate()
     }
     //TODO 주요상품 등록 구현
@@ -81,7 +81,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
             datePicker.show(supportFragmentManager, datePicker.toString())
         }
     }
-    private fun setSpinner(){
+    /*private fun setSpinner(){
         val items = resources.getStringArray(R.array.itemList)
 
         val myAapter = object : ArrayAdapter<String>(this, R.layout.item_spinner) {
@@ -144,7 +144,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
             dipValue,
             resources.displayMetrics
         )
-    }
+    }*/
     private fun settingListener(){
         binding.registerBtn.setOnClickListener(this)
     }
@@ -172,9 +172,6 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
         }else if (binding.tvStartDay.text.isNullOrBlank() || binding.tvEndDay.text.isNullOrBlank()){
             binding.tvStartDay.requestFocus()
             Toast.makeText(this, "광고 표시기간을 설정해 주세요.", Toast.LENGTH_SHORT).show()
-        }else if (!binding.eventSp.equals(0)&&!binding.eventSp.equals(1)&&!binding.eventSp.equals(2)){
-            binding.eventSp.requestFocus()
-            Toast.makeText(this, "이벤트 종류를 선택해 주세요.", Toast.LENGTH_SHORT).show()
         }else if(binding.storeEt.text.isNullOrBlank()){
             binding.storeEt.requestFocus()
             Toast.makeText(this, "상점 설명을 적어주세요.", Toast.LENGTH_SHORT).show()

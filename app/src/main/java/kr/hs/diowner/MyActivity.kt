@@ -25,7 +25,7 @@ class MyActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.OnMenuIt
         super.onCreate(savedInstanceState)
         binding = ActivityMyBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        //TODO ID 값 받아서 변경시켜주기
         initDataRecyclerView()
         addDataRecyclerView()
         settingListener()
@@ -36,6 +36,7 @@ class MyActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.OnMenuIt
         binding.myAdLayout.setOnClickListener(this)
         binding.paymentLayout.setOnClickListener(this)
         binding.logLayout.setOnClickListener(this)
+        binding.tvTitle.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -57,13 +58,16 @@ class MyActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.OnMenuIt
                 val intent = Intent(this, PointLogActivity::class.java)
                 startActivity(intent)
             }
+            binding.tvTitle -> {
+                finish()
+            }
         }
     }
 
     private fun showPopup(v: View) {
         val themeWrapper = ContextThemeWrapper(this, R.style.PopupMenu)
         val popup = PopupMenu(themeWrapper, v, Gravity.NO_GRAVITY, 0, R.style.PopupMenu)
-        popup.menu.add(0, 0,0, "정보수정")
+        popup.menu.add(0, 0, 0, "정보수정")
         popup.menu.add(0, 1, 1, "로그아웃")
         popup.setOnMenuItemClickListener(this)
         popup.show()
@@ -82,12 +86,14 @@ class MyActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.OnMenuIt
     }
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
-        when(item?.itemId) {
+        when (item?.itemId) {
             0 -> Intent(this, ModifyActivity::class.java).run {
-                startActivity(this) }
+                startActivity(this)
+            }
             1 -> Intent(this, LoginActivity::class.java).run {
                 startActivity(this)
-                finish() }
+                finish()
+            }
         }
         return item != null
     }
