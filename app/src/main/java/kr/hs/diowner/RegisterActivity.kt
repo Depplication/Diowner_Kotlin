@@ -32,7 +32,6 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         settingListener()
-        //setSpinner()
         showdate()
     }
 
@@ -89,70 +88,6 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    /*private fun setSpinner(){
-        val items = resources.getStringArray(R.array.itemList)
-
-        val myAapter = object : ArrayAdapter<String>(this, R.layout.item_spinner) {
-
-            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-
-                val v = super.getView(position, convertView, parent)
-
-                if (position == count) {
-                    (v.findViewById<View>(R.id.tvItemSpinner) as TextView).text = ""
-                    (v.findViewById<View>(R.id.tvItemSpinner) as TextView).hint = getItem(count)
-                }
-
-                return v
-            }
-
-            override fun getCount(): Int {
-                return super.getCount() - 1
-            }
-
-        }
-
-        myAapter.addAll(items.toMutableList())
-
-        myAapter.add("---선택해주세요---")
-
-        binding.eventSp.adapter = myAapter
-
-        binding.eventSp.setSelection(myAapter.count)
-
-        binding.eventSp.dropDownVerticalOffset = dipToPixels(45f).toInt()
-        binding.eventSp.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View,
-                position: Int,
-                id: Long
-            ) {
-                //TODO 스피너 선택시 값처리 구현하기
-                when (position) {
-                    0 -> Toast.makeText(this@RegisterActivity, "첫번째 spinner입니다.", Toast.LENGTH_SHORT).show()
-
-                    1 -> Toast.makeText(this@RegisterActivity, "두번째", Toast.LENGTH_SHORT).show()
-
-                    2 -> Toast.makeText(this@RegisterActivity, "세번째", Toast.LENGTH_SHORT).show()
-                    else -> {
-                        Toast.makeText(this@RegisterActivity, "에러", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                Log.d("MyTag", "onNothingSelected")
-            }
-        }
-    }
-    private fun dipToPixels(dipValue: Float): Float {
-        return TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP,
-            dipValue,
-            resources.displayMetrics
-        )
-    }*/
     private fun settingListener() {
         binding.registerBtn.setOnClickListener(this)
     }
