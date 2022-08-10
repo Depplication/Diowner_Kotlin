@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="eventList">
+        <item>선택안함</item>
+        <item>오픈이벤트</item>
+        <item>일반이벤트</item>
+    </string-array>
+</resources>

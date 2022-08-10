@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categoryList">
+        <item>카테고리</item>
+        <item>음식</item>
+        <item>뷰티</item>
+        <item>생활</item>
+        <item>운동</item>
+        <item>인테리어</item>
+    </string-array>
+</resources>

@@ -5,9 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
-import android.util.TypedValue
 import android.view.View
-import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.datepicker.CalendarConstraints
@@ -16,12 +14,15 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import kr.hs.diowner.databinding.ActivityRegisterBinding
 import java.util.*
 import java.util.regex.Pattern
+import kotlin.collections.ArrayList
 
 
 class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityRegisterBinding
     private var calendar = Calendar.getInstance()
     private var result: Long = 0
+    private var check_event: Int = 0
+    private var check_category: Int = 0
 
     private val StNameEt: EditText by lazy {
         findViewById(R.id.StName_ET)
@@ -32,17 +33,23 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         settingListener()
+        settingEventSpinner()
+        settingCategorySpinner()
         showdate()
     }
 
     //TODO 주요상품 등록 구현
     //TODO 사진등록 구현
+    private fun setTimeArray(){
+
+    }
+
     private fun showdate() {
         val calenderConstraintBuilder = CalendarConstraints.Builder()
         calenderConstraintBuilder.setValidator(DateValidatorPointForward.now())
         val sharedPreference = getSharedPreferences("setDate", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreference.edit()
-        binding.firstDayBtn.setOnClickListener {
+        binding.firstDayLayout.setOnClickListener {
             val builder = MaterialDatePicker.Builder.datePicker()
                 .setTitleText("select_first_day")
                 .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
@@ -65,7 +72,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             datePicker.show(supportFragmentManager, datePicker.toString())
         }
 
-        binding.endDayBtn.setOnClickListener {
+        binding.endDayLayout.setOnClickListener {
             val calenderConstraintBuilder2 = CalendarConstraints.Builder()
             calenderConstraintBuilder2.setValidator(DateValidatorPointForward.from(result + 1))
             val builder = MaterialDatePicker.Builder.datePicker()
@@ -85,6 +92,69 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                     }"
             }
             datePicker.show(supportFragmentManager, datePicker.toString())
+        }
+    }
+
+    private fun settingEventSpinner() {
+        val item = resources.getStringArray(R.array.eventList)
+
+        val myAdapter = ArrayAdapter(this, R.layout.spinner_textview, item)
+        binding.eventSpinner.adapter = myAdapter
+
+        binding.eventSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                when(position) {
+                    0 -> {
+                         check_event = 1
+                    }
+                    1 -> {
+
+                    }
+                    2 -> {
+
+                    }
+                }
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+    }
+
+    private fun settingCategorySpinner() {
+        val item = resources.getStringArray(R.array.categoryList)
+
+        val myAdapter = ArrayAdapter(this, R.layout.spinner_textview, item)
+        binding.categorySpinner.adapter = myAdapter
+
+        binding.categorySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                when(position) {
+                    0 -> {
+                        check_category = 1
+                    }
+                    1 -> {
+
+                    }
+                    2 -> {
+
+                    }
+                    3 -> {
+
+                    }
+                    4 -> {
+
+                    }
+                    5 -> {
+
+                    }
+                }
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
         }
     }
 
@@ -120,6 +190,12 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         } else if (binding.storeEt.text.isNullOrBlank()) {
             binding.storeEt.requestFocus()
             Toast.makeText(this, "상점 설명을 적어주세요.", Toast.LENGTH_SHORT).show()
+        } else if (check_event == 1){
+            check_event = 0
+            Toast.makeText(this, "이벤트를 선택해 주세요.", Toast.LENGTH_SHORT).show()
+        } else if (check_category == 1) {
+            check_category = 0
+            Toast.makeText(this, "카테고리를 선택해 주세요.", Toast.LENGTH_SHORT).show()
         } else {
             Log.d("test_check", "pass")
             val intent = Intent(this, MyActivity::class.java)
