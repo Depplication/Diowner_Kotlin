@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="40dp"
+    android:layout_marginEnd="40dp"
+    android:background="@drawable/textview_scarlet">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:gravity="center_vertical"
+        android:text="광고제목"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent" />
+    <ImageView
+        android:id="@+id/trashcan"
+        android:src="@drawable/trash_can"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="14dp"
+        android:layout_height="14dp"/>
+    <ImageView
+        android:id="@+id/modify"
+        android:src="@drawable/modify"
+        app:layout_constraintEnd_toStartOf="@id/trashcan"
+        app:layout_constraintTop_toTopOf="@id/trashcan"
+        app:layout_constraintBottom_toBottomOf="@id/trashcan"
+        android:layout_marginEnd="10dp"
+        android:layout_width="14dp"
+        android:layout_height="14dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
