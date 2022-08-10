@@ -1,5 +1,6 @@
 package kr.hs.diowner
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -26,12 +27,17 @@ class MyAdActivity : AppCompatActivity(), View.OnClickListener {
     }
     private fun settingLstener() {
         binding.backBtn.setOnClickListener(this)
+        binding.addAdLayout.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when(v) {
             binding.backBtn -> {
                 finish()
+            }
+            binding.addAdLayout -> {
+                val intent = Intent(this, RegisterActivity::class.java)
+                startActivity(intent)
             }
         }
     }
