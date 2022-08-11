@@ -1,7 +1,10 @@
 package kr.hs.diowner
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.hs.diowner.data.AdvertisingData
@@ -17,13 +20,22 @@ class AdvertisingAdapter(val context: Context) :
             binding.title.text = data.title.toString()
             binding.modify.setOnClickListener {
                 //TODO 수정 구현
+                Intent(context, RegisterActivity::class.java).apply {
+                    putExtra("data", data)
+                }.run { context.startActivity(this) }
             }
             binding.trashcan.setOnClickListener {
                 //TODO 삭제 구현
+                removeItem(position)
+                Log.d("recyclerTest", position.toString())
             }
         }
     }
 
+    private fun removeItem(position: Int){
+        dataList.removeAt(position)
+        notifyDataSetChanged()
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = MyAdListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)

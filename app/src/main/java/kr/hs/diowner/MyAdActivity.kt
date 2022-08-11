@@ -6,23 +6,24 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import kr.hs.diowner.data.AdvertisingData
+import kr.hs.diowner.data.InfoAdvertisingData
 import kr.hs.diowner.databinding.ActivityMyAdBinding
 
 class MyAdActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMyAdBinding
-
     private val mDatas = mutableListOf<AdvertisingData>(
         AdvertisingData("안녕하세요"),
-        AdvertisingData("짜장면 광고입니다.")
+        AdvertisingData("짜장면 광고입니다."),
+        AdvertisingData("광고를 이렇게 많이 올릴까?"),
+        AdvertisingData("저도 의문입니다.")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMyAdBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        initDataRecyclerView()
         addDataRecyclerView()
+        initDataRecyclerView()
         settingLstener()
     }
     private fun settingLstener() {

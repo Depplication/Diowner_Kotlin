@@ -4,13 +4,18 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
+import kr.hs.diowner.data.AdvertisingData
+import kr.hs.diowner.data.InfoAdvertisingData
 import kr.hs.diowner.databinding.ActivityRegisterBinding
 import java.util.*
 import java.util.regex.Pattern
@@ -35,13 +40,31 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         settingListener()
         settingEventSpinner()
         settingCategorySpinner()
+        setTimeArray()
         showdate()
     }
 
     //TODO 주요상품 등록 구현
     //TODO 사진등록 구현
     private fun setTimeArray(){
+        binding.etTime.addTextChangedListener(object: TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val str : String = binding.etTime.text.toString()
+                if(str.length == 8){
+                    val msg = str.substring(0, 2) + ":" + str.substring(2, 4) + " ~ " + str.substring(4, 6) + ":" + str.substring(6, 8)
+                    binding.etTime.setText(msg)
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+        })
     }
 
     private fun showdate() {
@@ -108,10 +131,10 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                          check_event = 1
                     }
                     1 -> {
-
+                        check_event = 0
                     }
                     2 -> {
-
+                        check_event = 0
                     }
                 }
             }
@@ -135,19 +158,19 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                         check_category = 1
                     }
                     1 -> {
-
+                        check_event = 0
                     }
                     2 -> {
-
+                        check_event = 0
                     }
                     3 -> {
-
+                        check_event = 0
                     }
                     4 -> {
-
+                        check_event = 0
                     }
                     5 -> {
-
+                        check_event = 0
                     }
                 }
             }
