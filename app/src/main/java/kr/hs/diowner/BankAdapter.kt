@@ -2,6 +2,7 @@ package kr.hs.diowner
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -21,9 +22,8 @@ class BankAdapter(val context: Context, val bankList: ArrayList<BankData>, val k
                 binding.bankLayout.setOnClickListener {
                     if(key.equals("modify")){
                         Intent(context, ModifyActivity::class.java).apply {
-                            val activity2: ModifyActivity = context as ModifyActivity
                             putExtra("data", data)
-                            activity2.finish()
+                            Log.d("test", data.toString())
                         }.run { context.startActivity(this) }
                     }else if(key.equals("join")){
                         Intent(context, JoinActivity::class.java).apply {
@@ -44,7 +44,9 @@ class BankAdapter(val context: Context, val bankList: ArrayList<BankData>, val k
         return MyViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = bankList.size
+    override fun getItemCount(): Int {
+        return bankList.size
+    }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(bankList[position], context)
