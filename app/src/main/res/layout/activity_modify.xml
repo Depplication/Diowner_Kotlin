@@ -185,8 +185,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/address_ET" />
 
-    <EditText
-        android:id="@+id/bank_ET"
+    <TextView
+        android:id="@+id/bank_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -209,9 +209,9 @@
         android:layout_height="15dp"
         android:rotation="-90"
         android:src="@drawable/downarrow"
-        app:layout_constraintBottom_toBottomOf="@id/bank_ET"
+        app:layout_constraintBottom_toBottomOf="@id/bank_tv"
         app:layout_constraintEnd_toEndOf="@id/search_btn"
-        app:layout_constraintTop_toTopOf="@id/bank_ET" />
+        app:layout_constraintTop_toTopOf="@id/bank_tv" />
 
     <TextView
         android:id="@+id/tv_account"
@@ -226,7 +226,7 @@
         android:textSize="10sp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bank_ET" />
+        app:layout_constraintTop_toBottomOf="@id/bank_tv" />
 
     <EditText
         android:id="@+id/account_ET"

@@ -6,4 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".ChoiceBank">
 
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="48dp"
+        android:rotation="90"
+        android:src="@drawable/downarrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="은행선택"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/back_btn"
+        app:layout_constraintStart_toEndOf="@id/back_btn"
+        app:layout_constraintTop_toTopOf="@id/back_btn" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bank_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/bank_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_btn">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/bank_recycler1"
+            android:layout_width="match_parent"
+            tools:listitem="@layout/bank_list"
+            android:layout_height="match_parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bank_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintBottom_toBottomOf="@id/bank_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bank_1"
+        app:layout_constraintTop_toTopOf="@id/bank_1">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/bank_recycler2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

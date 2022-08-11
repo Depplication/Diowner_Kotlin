@@ -49,7 +49,9 @@ class ModifyActivity : AppCompatActivity(), View.OnClickListener {
                 checkModify()
             }
             binding.choiceBtn -> {
-                val intent = Intent(this, ChoiceBank::class.java)
+                val intent = Intent(this, ChoiceBank::class.java).apply {
+                    putExtra("data", "modify")
+                }
                 startActivity(intent)
             }
         }
