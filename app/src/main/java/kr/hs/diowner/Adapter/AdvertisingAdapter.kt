@@ -1,10 +1,11 @@
-package kr.hs.diowner
+package kr.hs.diowner.Adapter
 
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kr.hs.diowner.RegisterActivity
 import kr.hs.diowner.data.AdvertisingData
 import kr.hs.diowner.databinding.MyAdListBinding
 

@@ -1,4 +1,4 @@
-package kr.hs.diowner
+package kr.hs.diowner.Adapter
 
 import android.content.Context
 import android.content.Intent
@@ -6,6 +6,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kr.hs.diowner.ChoiceBank
+import kr.hs.diowner.JoinActivity
+import kr.hs.diowner.ModifyActivity
 import kr.hs.diowner.data.BankData
 import kr.hs.diowner.databinding.BankListBinding
 import java.util.ArrayList

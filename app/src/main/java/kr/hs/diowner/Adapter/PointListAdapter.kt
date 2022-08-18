@@ -1,4 +1,4 @@
-package kr.hs.diowner
+package kr.hs.diowner.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater

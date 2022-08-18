@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.LinearLayoutManager
+import kr.hs.diowner.Adapter.PointListAdapter
 import kr.hs.diowner.data.PointData
 import kr.hs.diowner.databinding.ActivityMyBinding
 

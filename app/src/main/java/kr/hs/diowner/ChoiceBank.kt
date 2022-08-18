@@ -3,6 +3,7 @@ package kr.hs.diowner
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import kr.hs.diowner.Adapter.BankAdapter
 import kr.hs.diowner.data.BankData
 import kr.hs.diowner.databinding.ActivityChoiceBankBinding
 

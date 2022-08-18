@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import kr.hs.diowner.Adapter.AdvertisingAdapter
 import kr.hs.diowner.data.AdvertisingData
-import kr.hs.diowner.data.InfoAdvertisingData
 import kr.hs.diowner.databinding.ActivityMyAdBinding
 
 class MyAdActivity : AppCompatActivity(), View.OnClickListener {
@@ -24,9 +24,9 @@ class MyAdActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
         addDataRecyclerView()
         initDataRecyclerView()
-        settingLstener()
+        settingListener()
     }
-    private fun settingLstener() {
+    private fun settingListener() {
         binding.backBtn.setOnClickListener(this)
         binding.addAdLayout.setOnClickListener(this)
     }

@@ -10,7 +10,7 @@
         android:id="@+id/back_btn"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="35dp"
         android:layout_marginTop="48dp"
         android:rotation="90"
         android:src="@drawable/downarrow"
@@ -30,7 +30,7 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="40dp"
+        android:layout_margin="35dp"
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,6 +56,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/bank_recycler2"
+                    android:layout_marginStart="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
