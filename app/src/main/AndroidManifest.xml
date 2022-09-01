@@ -13,6 +13,9 @@
             android:name=".TermsOfUse"
             android:exported="false" />
         <activity
+            android:name=".JoinActivity2"
+            android:exported="false" />
+        <activity
             android:name=".ChoiceBank"
             android:exported="false" />
         <activity

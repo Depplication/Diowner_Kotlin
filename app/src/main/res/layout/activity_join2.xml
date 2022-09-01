@@ -1,148 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".JoinActivity">
+    tools:context=".JoinActivity2"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
-        android:orientation="horizontal">
-
+        android:orientation="horizontal"
+        android:layout_marginBottom="70dp">
         <TextView
             android:id="@+id/M1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="30dp"
             android:text="<"
-            android:textColor="@color/black"
-            android:textSize="50dp" />
+            android:textSize="50dp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/M2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
             android:text=" Sign up"
+            android:layout_marginTop="23dp"
             android:textColor="@color/black"
             android:textSize="25dp"
             android:textStyle="italic" />
     </LinearLayout>
 
 
-    <EditText
-        android:id="@+id/userR_name1"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:autofillHints="name"
-        android:background="@drawable/edit_style"
-        android:hint="   대표자명을 입력해 주세요."
-        android:textColorHint="#71727B"
-        android:textSize="13dp" />
-
-    <TextView
-        android:id="@+id/R_name1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="-60dp"
-        android:background="@color/white"
-        android:text="R_NAME"
-        android:textColor="#FF7372"
-        android:textStyle="italic" />
-
-
     <!--1-->
     <EditText
-        android:id="@+id/user_Id1"
+        android:id="@+id/userP_num1"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="80dp"
         android:autofillHints="name"
         android:background="@drawable/edit_style"
-        android:hint="   아이디를 입력해 주세요."
+        android:hint="   전화번호를 입력해 주세요."
+        android:layout_marginLeft="30dp"
         android:textColorHint="#71727B"
-        android:textSize="13dp" />
+        android:textSize="12dp" />
 
     <TextView
-        android:id="@+id/Id1"
+        android:id="@+id/Call1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
+        android:text="CALL"
+        android:textColor="#FF7372"
+        android:textStyle="italic"
         android:layout_marginTop="-60dp"
         android:background="@color/white"
-        android:text="ID"
-        android:textColor="#FF7372"
-        android:textStyle="italic" />
-
+        />
 
     <!--2-->
 
     <EditText
-        android:id="@+id/user_PW1"
+        android:id="@+id/userAdd1"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="80dp"
         android:autofillHints="name"
         android:background="@drawable/edit_style"
-        android:hint="   비밀번호를 입력해 주세요."
+        android:hint="   주소를 입력해 주세요."
+        android:layout_marginLeft="30dp"
         android:textColorHint="#71727B"
-        android:textSize="13dp" />
+        android:textSize="13dp"
+        android:layout_marginTop="80dp"/>
 
     <TextView
-        android:id="@+id/PW1"
+        android:id="@+id/Adr1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
+        android:text="ADD"
+        android:textColor="#FF7372"
+        android:textStyle="italic"
         android:layout_marginTop="-60dp"
         android:background="@color/white"
-        android:text="PW"
-        android:textColor="#FF7372"
-        android:textStyle="italic" />
+        />
+
+
 
 
     <!--3-->
+
     <EditText
-        android:id="@+id/user_CPW1"
+        android:id="@+id/userBank1"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="80dp"
         android:autofillHints="name"
         android:background="@drawable/edit_style"
-        android:hint="   비밀번호를 재_입력해 주세요."
+        android:hint="   은행을 선택해주세요."
         android:textColorHint="#71727B"
         android:textSize="13dp" />
 
     <TextView
-        android:id="@+id/CPW1"
+        android:id="@+id/Bank1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="-60dp"
-        android:background="@color/white"
-        android:text="CPW"
+        android:text="BANK"
         android:textColor="#FF7372"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        android:layout_marginTop="-60dp"
+        android:background="@color/white"/>
+
+
+
+
+    <!--4-->
+
+    <EditText
+        android:id="@+id/userAcn1"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:autofillHints="name"
+        android:background="@drawable/edit_style"
+        android:hint="   계좌를 입력해 주세요."
+        android:layout_marginLeft="30dp"
+        android:textColorHint="#71727B"
+        android:textSize="13dp"
+        android:layout_marginTop="80dp"/>
+
+    <TextView
+        android:id="@+id/Acn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:text="ACN"
+        android:textColor="#FF7372"
+        android:textStyle="italic"
+        android:layout_marginTop="-60dp"
+        android:background="@color/white"/>
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/Next_btn1"
+        android:id="@+id/Join_btn1"
         android:layout_width="350dp"
-        android:layout_height="55dp"
+        android:layout_height="52dp"
         android:layout_gravity="center"
         android:layout_marginTop="130dp"
         android:background="@drawable/btn_style"
-        android:text="Next"
+        android:text="Join"
         android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold" />
