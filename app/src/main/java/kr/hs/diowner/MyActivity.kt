@@ -68,8 +68,9 @@ class MyActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.OnMenuIt
     private fun showPopup(v: View) {
         val themeWrapper = ContextThemeWrapper(this, R.style.PopupMenu)
         val popup = PopupMenu(themeWrapper, v, Gravity.NO_GRAVITY, 0, R.style.PopupMenu)
-        popup.menu.add(0, 0, 0, "정보수정")
-        popup.menu.add(0, 1, 1, "로그아웃")
+        popup.menu.add(0, 0, 0, "문의하기")
+        popup.menu.add(0, 1, 1, "정보수정")
+        popup.menu.add(0, 2, 2, "로그아웃")
         popup.setOnMenuItemClickListener(this)
         popup.show()
     }
@@ -88,10 +89,10 @@ class MyActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.OnMenuIt
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            0 -> Intent(this, ModifyActivity::class.java).run {
+            1 -> Intent(this, ModifyActivity::class.java).run {
                 startActivity(this)
             }
-            1 -> Intent(this, LoginActivity::class.java).run {
+            2 -> Intent(this, LoginActivity::class.java).run {
                 startActivity(this)
                 finish()
             }
