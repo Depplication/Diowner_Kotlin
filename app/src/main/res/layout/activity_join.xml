@@ -75,7 +75,7 @@
         android:id="@+id/user_Id1"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="22dp"
         android:autofillHints="name"
         android:background="@drawable/edit_style"
         android:hint="아이디를 입력해 주세요."
@@ -91,9 +91,9 @@
         android:id="@+id/Id1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="59dp"
         android:background="@color/white"
-        android:paddingHorizontal="3dp"
+        android:paddingHorizontal="2dp"
         android:text="ID"
         android:textColor="@color/MainColor"
         android:textSize="10sp"
@@ -108,7 +108,7 @@
         android:id="@+id/user_PW1"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="22dp"
         android:autofillHints="password"
         android:background="@drawable/edit_style"
         android:hint="비밀번호를 입력해 주세요."
@@ -123,14 +123,15 @@
         android:id="@+id/PW1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="15dp"
         android:background="@color/white"
+        android:paddingHorizontal="2dp"
         android:text="PW"
         android:textColor="@color/MainColor"
         android:textSize="10sp"
         android:textStyle="italic|bold"
         app:layout_constraintStart_toStartOf="@id/Id1"
-        app:layout_constraintTop_toBottomOf="@id/Id1" />
+        app:layout_constraintTop_toBottomOf="@id/user_Id1" />
 
 
     <!--3-->
@@ -138,7 +139,7 @@
         android:id="@+id/user_CPW1"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="22dp"
         android:autofillHints="name"
         android:background="@drawable/edit_style"
         android:hint="비밀번호를 재_입력해 주세요."
@@ -153,21 +154,22 @@
         android:id="@+id/CPW1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="15dp"
         android:background="@color/white"
+        android:paddingHorizontal="2dp"
         android:text="CPW"
         android:textColor="@color/MainColor"
         android:textSize="10sp"
         android:textStyle="italic|bold"
         app:layout_constraintStart_toStartOf="@id/R_name1"
-        app:layout_constraintTop_toBottomOf="@id/PW1" />
+        app:layout_constraintTop_toBottomOf="@id/user_PW1" />
 
     <!--4-->
     <EditText
         android:id="@+id/user_SHOP1"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="22dp"
         android:background="@drawable/edit_style"
         android:hint="상점명을 입력해 주세요."
         android:paddingLeft="10dp"
@@ -181,14 +183,15 @@
         android:id="@+id/SHOP1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="15dp"
         android:background="@color/white"
+        android:paddingHorizontal="2dp"
         android:text="SHOP"
         android:textColor="@color/MainColor"
         android:textSize="10sp"
         android:textStyle="italic|bold"
         app:layout_constraintStart_toStartOf="@id/R_name1"
-        app:layout_constraintTop_toBottomOf="@id/CPW1" />
+        app:layout_constraintTop_toBottomOf="@id/user_CPW1" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Next_btn1"
@@ -202,7 +205,6 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/back_layout"
         app:layout_constraintStart_toStartOf="@id/back_layout" />
