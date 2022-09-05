@@ -27,6 +27,7 @@ class JoinActivity : AppCompatActivity() {
             intent.putExtra("id", binding.userId1.text.toString());
             intent.putExtra("PW1", binding.PW1.text.toString());
             intent.putExtra("PW2", binding.CPW1.text.toString());
+            intent.putExtra("SHOP", binding.userSHOP1.text.toString());
             startActivity(intent);
         }
 

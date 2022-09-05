@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,142 +9,202 @@
     tools:context=".JoinActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/back_layout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
-        android:orientation="horizontal">
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="43dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/M1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="30dp"
-            android:text="<"
-            android:textColor="@color/black"
-            android:textSize="50dp" />
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:rotation="90"
+            android:src="@drawable/downarrow" />
 
         <TextView
             android:id="@+id/M2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
-            android:text=" Sign up"
+            android:paddingLeft="5dp"
+            android:text="Sign up"
             android:textColor="@color/black"
             android:textSize="25dp"
-            android:textStyle="italic" />
+            android:textStyle="italic|bold" />
     </LinearLayout>
 
 
     <EditText
         android:id="@+id/userR_name1"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginTop="60dp"
         android:autofillHints="name"
         android:background="@drawable/edit_style"
-        android:hint="   대표자명을 입력해 주세요."
-        android:textColorHint="#71727B"
-        android:textSize="13dp" />
+        android:hint="대표자명을 입력해 주세요."
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@id/back_layout"
+        app:layout_constraintStart_toStartOf="@id/back_layout"
+        app:layout_constraintTop_toBottomOf="@id/back_layout" />
 
     <TextView
         android:id="@+id/R_name1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="-60dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="53dp"
         android:background="@color/white"
         android:text="R_NAME"
-        android:textColor="#FF7372"
-        android:textStyle="italic" />
+        android:textColor="@color/MainColor"
+        android:textSize="10sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_layout" />
 
 
     <!--1-->
     <EditText
         android:id="@+id/user_Id1"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="15dp"
         android:autofillHints="name"
         android:background="@drawable/edit_style"
-        android:hint="   아이디를 입력해 주세요."
-        android:textColorHint="#71727B"
-        android:textSize="13dp" />
+        android:hint="아이디를 입력해 주세요."
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@id/back_layout"
+        app:layout_constraintStart_toStartOf="@id/back_layout"
+        app:layout_constraintTop_toBottomOf="@id/userR_name1" />
 
     <TextView
         android:id="@+id/Id1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="-60dp"
+        android:layout_marginTop="52dp"
         android:background="@color/white"
+        android:paddingHorizontal="3dp"
         android:text="ID"
-        android:textColor="#FF7372"
-        android:textStyle="italic" />
+        android:textColor="@color/MainColor"
+        android:textSize="10sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="@id/R_name1"
+        app:layout_constraintTop_toBottomOf="@id/R_name1" />
 
 
     <!--2-->
 
     <EditText
         android:id="@+id/user_PW1"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="80dp"
-        android:autofillHints="name"
+        android:layout_marginTop="15dp"
+        android:autofillHints="password"
         android:background="@drawable/edit_style"
-        android:hint="   비밀번호를 입력해 주세요."
-        android:textColorHint="#71727B"
-        android:textSize="13dp" />
+        android:hint="비밀번호를 입력해 주세요."
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@id/back_layout"
+        app:layout_constraintStart_toStartOf="@id/back_layout"
+        app:layout_constraintTop_toBottomOf="@id/user_Id1" />
 
     <TextView
         android:id="@+id/PW1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="-60dp"
+        android:layout_marginTop="49dp"
         android:background="@color/white"
         android:text="PW"
-        android:textColor="#FF7372"
-        android:textStyle="italic" />
+        android:textColor="@color/MainColor"
+        android:textSize="10sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="@id/Id1"
+        app:layout_constraintTop_toBottomOf="@id/Id1" />
 
 
     <!--3-->
     <EditText
         android:id="@+id/user_CPW1"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="15dp"
         android:autofillHints="name"
         android:background="@drawable/edit_style"
-        android:hint="   비밀번호를 재_입력해 주세요."
-        android:textColorHint="#71727B"
-        android:textSize="13dp" />
+        android:hint="비밀번호를 재_입력해 주세요."
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@id/back_layout"
+        app:layout_constraintStart_toStartOf="@id/back_layout"
+        app:layout_constraintTop_toBottomOf="@id/user_PW1" />
 
     <TextView
         android:id="@+id/CPW1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="-60dp"
+        android:layout_marginTop="52dp"
         android:background="@color/white"
         android:text="CPW"
-        android:textColor="#FF7372"
-        android:textStyle="italic" />
+        android:textColor="@color/MainColor"
+        android:textSize="10sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="@id/R_name1"
+        app:layout_constraintTop_toBottomOf="@id/PW1" />
 
+    <!--4-->
+    <EditText
+        android:id="@+id/user_SHOP1"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edit_style"
+        android:hint="상점명을 입력해 주세요."
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@id/back_layout"
+        app:layout_constraintStart_toStartOf="@id/back_layout"
+        app:layout_constraintTop_toBottomOf="@id/user_CPW1" />
+
+    <TextView
+        android:id="@+id/SHOP1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@color/white"
+        android:text="SHOP"
+        android:textColor="@color/MainColor"
+        android:textSize="10sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="@id/R_name1"
+        app:layout_constraintTop_toBottomOf="@id/CPW1" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Next_btn1"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_gravity="center"
         android:layout_marginTop="130dp"
+        android:layout_marginBottom="121dp"
         android:background="@drawable/btn_style"
         android:text="Next"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/back_layout"
+        app:layout_constraintStart_toStartOf="@id/back_layout" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
