@@ -33,8 +33,9 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
                 Intent(this, JoinActivity2::class.java).run {
                     putExtra("name", binding.RName1.text.toString())
                     putExtra("id", binding.userId1.text.toString())
-                    putExtra("PW", binding.PW1.text.toString())
+                    putExtra("PW", binding.userPW1.text.toString())
                     putExtra("SHOP", binding.userSHOP1.text.toString())
+                    finish()
                     startActivity(this)
                 }
             }
