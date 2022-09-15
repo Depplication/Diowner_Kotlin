@@ -12,27 +12,33 @@ import android.widget.*
 import kr.hs.diowner.databinding.ActivityJoinBinding
 import java.util.regex.Pattern
 
-class JoinActivity : AppCompatActivity() {
+class JoinActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var binding: ActivityJoinBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityJoinBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        binding.NextBtn1.setOnClickListener {
-
-            var intent = Intent(this, JoinActivity2::class.java);
-            intent.putExtra("name", binding.RName1.text.toString());
-            intent.putExtra("id", binding.userId1.text.toString());
-            intent.putExtra("PW1", binding.PW1.text.toString());
-            intent.putExtra("PW2", binding.CPW1.text.toString());
-            intent.putExtra("SHOP", binding.userSHOP1.text.toString());
-            startActivity(intent);
-        }
-
-
+        settingListener()
     }
 
+    private fun settingListener() {
+        binding.NextBtn1.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        when(v) {
+            binding.NextBtn1 -> {
+                Intent(this, JoinActivity2::class.java).run {
+                    putExtra("name", binding.RName1.text.toString())
+                    putExtra("id", binding.userId1.text.toString())
+                    putExtra("PW", binding.PW1.text.toString())
+                    putExtra("SHOP", binding.userSHOP1.text.toString())
+                    startActivity(this)
+                }
+            }
+        }
+    }
 
 }
