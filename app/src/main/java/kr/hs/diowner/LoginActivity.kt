@@ -83,6 +83,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     Log.d("testasd", response.body().toString())
                     var data = response.body() // GsonConverter를 사용해 데이터매핑
                     App.prefs.token = data!!.tokenData.token
+                    App.prefs.id = data.ownerData.id
                     val intent = Intent(applicationContext, MainActivity::class.java)
                     finish()
                     startActivity(intent)

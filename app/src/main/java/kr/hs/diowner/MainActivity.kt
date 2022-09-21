@@ -3,14 +3,14 @@ package kr.hs.diowner
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.ContextThemeWrapper
+import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.PopupMenu
-import android.widget.TextView
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
+import kr.hs.diowner.data.OwnerResponseData
 import kr.hs.diowner.databinding.ActivityMainBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
@@ -20,8 +20,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        getOwnerData()
         //TODO ID값 받아서 이름 바꿔주기
         settingListener()
+
     }
 
     private fun settingListener() {
@@ -49,6 +51,46 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         } else {
             finish()
         }
+    }
+
+    private fun getOwnerData() {
+        RetrofitBuilder.api.getOwnerData(App.prefs.id).enqueue(object :
+            Callback<OwnerResponseData> {
+            override fun onResponse(
+                call: Call<OwnerResponseData>,
+                response: Response<OwnerResponseData>,
+            ) {
+                Log.d("testasd", response.toString())
+                if (response.isSuccessful) {
+                    Log.d("testasd", response.body().toString())
+                    var data = response.body() // GsonConverter를 사용해 데이터매핑
+                    binding.tvTitle.text = data!!.name + "님\n안녕하세요!"
+                    var pointData = pointCal(data.point.toString())
+                    binding.tvPoint.text = pointData + "P"
+                    //Log.d("testasd", data)
+                }
+            }
+
+            override fun onFailure(call: Call<OwnerResponseData>, t: Throwable) {
+                Log.d("testasd", "실패$t")
+            }
+
+        })
+    }
+    private fun pointCal(point: String): String {
+        val point = point
+        var result: String = ""
+        var pointResult: String = ""
+        for(i in point.length downTo 0){
+            if(i != 0 && i % 3 == 0){
+                result = "$result,"
+            }
+            result += point[i]
+        }
+        for(i in result.length downTo 0){
+            pointResult += result[i]
+        }
+        return pointResult
     }
 
 
