@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".JoinActivity">
 
     <TextView
@@ -20,6 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
+        android:background="@color/white"
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -69,6 +71,7 @@
                 android:paddingBottom="14dp"
                 android:singleLine="true"
                 android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -101,6 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/round_gray"
+                android:textColor="@color/black"
                 android:hint="사업자 등록번호/주민등록번호(개인일 경우)"
                 android:paddingLeft="10dp"
                 android:paddingTop="14dp"
@@ -139,6 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/round_gray"
+                android:textColor="@color/black"
                 android:hint="대표자명을 입력하세요."
                 android:paddingLeft="10dp"
                 android:paddingTop="14dp"
@@ -178,6 +183,7 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/round_gray"
                 android:hint="이메일을 입력하세요."
+                android:textColor="@color/black"
                 android:paddingLeft="10dp"
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"
@@ -225,14 +231,13 @@
                     android:id="@+id/tv_startDay"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:layout_marginTop="8dp"
                     android:background="@drawable/round_left_gray"
                     android:gravity="center_vertical"
                     android:hint="시작일"
                     android:paddingLeft="10dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
-                    android:textSize="10dp"
+                    android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/firstDayLayout"
                     app:layout_constraintStart_toStartOf="parent"
@@ -515,6 +520,7 @@
                 app:layout_constraintTop_toBottomOf="@id/store_et">
 
                 <Spinner
+                    android:popupBackground="@color/TextGray"
                     android:id="@+id/event_spinner"
                     android:layout_width="81dp"
                     android:layout_height="0dp"
@@ -528,6 +534,7 @@
                 <Spinner
                     android:id="@+id/category_spinner"
                     android:layout_width="81dp"
+                    android:popupBackground="@color/TextGray"
                     android:layout_height="0dp"
                     android:background="@drawable/spinner_background"
                     android:dropDownWidth="81dp"
@@ -554,8 +561,10 @@
                     android:background="@drawable/round_gray"
                     android:gravity="center"
                     android:hint="09:00 ~ 18:00"
+                    android:maxLength="13"
                     android:inputType="number"
                     android:paddingLeft="10dp"
+                    android:textColorHint="@color/TextGray"
                     android:textColor="@color/black"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"

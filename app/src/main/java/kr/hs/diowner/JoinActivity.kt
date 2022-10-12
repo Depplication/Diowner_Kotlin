@@ -20,6 +20,7 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityJoinBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         settingListener()
     }
 
@@ -31,7 +32,7 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
         when(v) {
             binding.NextBtn1 -> {
                 Intent(this, JoinActivity2::class.java).run {
-                    putExtra("name", binding.RName1.text.toString())
+                    putExtra("name", binding.userRName1.text.toString())
                     putExtra("id", binding.userId1.text.toString())
                     putExtra("PW", binding.userPW1.text.toString())
                     putExtra("SHOP", binding.userSHOP1.text.toString())

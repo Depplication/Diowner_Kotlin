@@ -19,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:includeFontPadding="false"
             android:id="@+id/Main_Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,7 +38,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
             android:fontFamily="@font/theluxgul"
             android:gravity="center"
             android:text="사장님 앱"
@@ -46,7 +46,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/Main_Title"
             app:layout_constraintStart_toStartOf="@id/Main_Title"
-            app:layout_constraintTop_toTopOf="@id/Main_Title" />
+            app:layout_constraintTop_toBottomOf="@id/Main_Title" />
 
         <TextView
             android:id="@+id/tv_id"

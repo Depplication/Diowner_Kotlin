@@ -30,6 +30,12 @@ class MyActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.OnMenuIt
         initDataRecyclerView()
         addDataRecyclerView()
         settingListener()
+        settingText()
+    }
+
+    private fun settingText() {
+        binding.tvId.text = App.prefs.name + "님 안녕하세요!"
+        binding.tvPoint.text = App.prefs.point.toString()
     }
 
     private fun settingListener() {
@@ -93,8 +99,13 @@ class MyActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.OnMenuIt
                 startActivity(this)
             }
             2 -> Intent(this, LoginActivity::class.java).run {
+                finishAffinity()
+                App.prefs.point = 0
+                App.prefs.name = null
+                App.prefs.token = null
+                App.prefs.id = 0
                 startActivity(this)
-                finish()
+
             }
         }
         return item != null

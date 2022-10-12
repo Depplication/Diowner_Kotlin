@@ -57,6 +57,7 @@ class JoinActivity2 : AppCompatActivity() {
                 call: Call<Void>,
                 response: Response<Void>,
             ) {
+                Log.d("testasd", response.toString())
                 if (response.isSuccessful) {
                     intent()
                 }

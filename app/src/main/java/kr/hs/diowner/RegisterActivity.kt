@@ -10,24 +10,27 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.addTextChangedListener
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
-import kr.hs.diowner.data.AdvertisingData
-import kr.hs.diowner.data.InfoAdvertisingData
+import kr.hs.diowner.data.AdvertisingResponseData
+import kr.hs.diowner.data.OwnerResponseData
+import kr.hs.diowner.data.PostAdvertisingData
+import kr.hs.diowner.data.ProductData
 import kr.hs.diowner.databinding.ActivityRegisterBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
 import java.util.regex.Pattern
-import kotlin.collections.ArrayList
 
 
 class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityRegisterBinding
     private var calendar = Calendar.getInstance()
     private var result: Long = 0
-    private var check_event: Int = 0
-    private var check_category: Int = 0
+    private var check_event: String = "null"
+    private var check_category: String = "null"
 
     private val StNameEt: EditText by lazy {
         findViewById(R.id.StName_ET)
@@ -46,18 +49,32 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     //TODO 주요상품 등록 구현
     //TODO 사진등록 구현
-    private fun setTimeArray(){
-        binding.etTime.addTextChangedListener(object: TextWatcher{
+    private fun setTimeArray() {
+        binding.etTime.addTextChangedListener(object : TextWatcher {
+            var length = 0
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
+                length = binding.etTime.text.length
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val str : String = binding.etTime.text.toString()
-                if(str.length == 8){
-                    val msg = str.substring(0, 2) + ":" + str.substring(2, 4) + " ~ " + str.substring(4, 6) + ":" + str.substring(6, 8)
-                    binding.etTime.setText(msg)
+                val check = length > binding.etTime.text.length
+                binding.etTime.setSelection(binding.etTime.text.length)
+                var str: String = binding.etTime.text.toString()
+
+                if (str.length == 11 && check) {
+                    binding.etTime.setText(str.substring(0, 10))
+                } else if (str.length == 8 && check) {
+                    binding.etTime.setText(str.substring(0, 5))
+                } else if (str.length == 3 && check) {
+                    binding.etTime.setText(str.substring(0, 2))
+                } else if (str.length == 3 && !check) {
+                    binding.etTime.setText(str.substring(0,2) + ":"+str.substring(2,3))
+                } else if(str.length == 6 && !check) {
+                    binding.etTime.setText(str.substring(0,5) + " ~ " + str.substring(5,6))
+                } else if(str.length == 11 && !check) {
+                    binding.etTime.setText(str.substring(0,10)+ ":" + str.substring(10,11))
                 }
+
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -125,16 +142,21 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         binding.eventSpinner.adapter = myAdapter
 
         binding.eventSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                when(position) {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                when (position) {
                     0 -> {
-                         check_event = 1
+                        check_event = "null"
                     }
                     1 -> {
-                        check_event = 0
+                        check_event = "NEW"
                     }
                     2 -> {
-                        check_event = 0
+                        check_event = "ORIGIN"
                     }
                 }
             }
@@ -151,44 +173,54 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         val myAdapter = ArrayAdapter(this, R.layout.spinner_textview, item)
         binding.categorySpinner.adapter = myAdapter
 
-        binding.categorySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                when(position) {
-                    0 -> {
-                        check_category = 1
-                    }
-                    1 -> {
-                        check_event = 0
-                    }
-                    2 -> {
-                        check_event = 0
-                    }
-                    3 -> {
-                        check_event = 0
-                    }
-                    4 -> {
-                        check_event = 0
-                    }
-                    5 -> {
-                        check_event = 0
+        binding.categorySpinner.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    when (position) {
+                        0 -> {
+                            check_category = "null"
+                        }
+                        1 -> {
+                            check_category = "FOOD"
+                        }
+                        2 -> {
+                            check_category = "BEAUTY"
+                        }
+                        3 -> {
+                            check_category = "PLANT"
+                        }
+                        4 -> {
+                            check_category = "EXERCISE"
+                        }
+                        5 -> {
+                            check_category = "INTERIOR"
+                        }
                     }
                 }
-            }
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
+                override fun onNothingSelected(p0: AdapterView<*>?) {
 
+                }
             }
-        }
     }
 
     private fun settingListener() {
         binding.registerBtn.setOnClickListener(this)
+        binding.etTime.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         when (view) {
             binding.registerBtn -> {
                 CheckRegister()
+            }
+            binding.etTime -> {
+                binding.etTime.setSelection(binding.etTime.text.length)
             }
         }
     }
@@ -213,18 +245,51 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         } else if (binding.storeEt.text.isNullOrBlank()) {
             binding.storeEt.requestFocus()
             Toast.makeText(this, "상점 설명을 적어주세요.", Toast.LENGTH_SHORT).show()
-        } else if (check_event == 1){
-            check_event = 0
+        } else if (check_event == "null") {
             Toast.makeText(this, "이벤트를 선택해 주세요.", Toast.LENGTH_SHORT).show()
-        } else if (check_category == 1) {
-            check_category = 0
+        } else if (check_category == "null") {
             Toast.makeText(this, "카테고리를 선택해 주세요.", Toast.LENGTH_SHORT).show()
         } else {
             Log.d("test_check", "pass")
-            val intent = Intent(this, MyActivity::class.java)
-            Toast.makeText(this, "등록 성공!!", Toast.LENGTH_SHORT).show()
-            finish()
-            startActivity(intent)
+
+
+            val postAdvertisingData = PostAdvertisingData(
+                binding.businessNumET.text.toString(),
+                check_category,
+                binding.mailET.text.toString(),
+                binding.tvEndDay.text.toString(),
+                binding.storeEt.text.toString(),
+                binding.representET.text.toString(),
+                arrayListOf(ProductData("test", 1000), ProductData("test", 1000)),
+                binding.tvStartDay.text.toString(),
+                "상점 이름",
+                binding.StNameET.text.toString(),
+                check_event
+            )
+            postAdvertising(postAdvertisingData)
         }
+    }
+
+    private fun postAdvertising(postAdvertisingData: PostAdvertisingData) {
+        RetrofitBuilder.api.postAdvertising(postAdvertisingData).enqueue(object :
+            Callback<AdvertisingResponseData> {
+            override fun onResponse(
+                call: Call<AdvertisingResponseData>,
+                response: Response<AdvertisingResponseData>,
+            ) {
+                Log.d("testasd", response.toString())
+                if (response.isSuccessful) {
+                    val intent = Intent(applicationContext, MyActivity::class.java)
+                    Toast.makeText(applicationContext, "등록 성공!!", Toast.LENGTH_SHORT).show()
+                    finish()
+                    startActivity(intent)
+                }
+            }
+
+            override fun onFailure(call: Call<AdvertisingResponseData>, t: Throwable) {
+                Log.d("testasd", "실패$t")
+            }
+
+        })
     }
 }

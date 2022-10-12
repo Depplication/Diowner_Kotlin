@@ -54,40 +54,51 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun getOwnerData() {
-        RetrofitBuilder.api.getOwnerData(App.prefs.id).enqueue(object :
-            Callback<OwnerResponseData> {
-            override fun onResponse(
-                call: Call<OwnerResponseData>,
-                response: Response<OwnerResponseData>,
-            ) {
-                Log.d("testasd", response.toString())
-                if (response.isSuccessful) {
-                    Log.d("testasd", response.body().toString())
-                    var data = response.body() // GsonConverter를 사용해 데이터매핑
-                    binding.tvTitle.text = data!!.name + "님\n안녕하세요!"
-                    var pointData = pointCal(data.point.toString())
-                    binding.tvPoint.text = pointData + "P"
-                    //Log.d("testasd", data)
-                }
-            }
+        binding.tvTitle.text = App.prefs.name + "님\n안녕하세요!"
+        var pointData = pointCal(App.prefs.point.toString())
+        binding.tvPoint.text = pointData + "P"
 
-            override fun onFailure(call: Call<OwnerResponseData>, t: Throwable) {
-                Log.d("testasd", "실패$t")
-            }
-
-        })
+//        RetrofitBuilder.api.getOwnerData(App.prefs.id).enqueue(object :
+//            Callback<OwnerResponseData> {
+//            override fun onResponse(
+//                call: Call<OwnerResponseData>,
+//                response: Response<OwnerResponseData>,
+//            ) {
+//                Log.d("testasd", response.toString())
+//                if (response.isSuccessful) {
+//                    Log.d("testasd", response.body().toString())
+//                    var data = response.body() // GsonConverter를 사용해 데이터매핑
+//                    binding.tvTitle.text = data!!.name + "님\n안녕하세요!"
+//                    var pointData = pointCal(data.point.toString())
+//                    binding.tvPoint.text = pointData + "P"
+//                    //Log.d("testasd", data)
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<OwnerResponseData>, t: Throwable) {
+//                Log.d("testasd", "실패$t")
+//            }
+//
+//        })
     }
     private fun pointCal(point: String): String {
-        val point = point
+//        if(point.isNotEmpty()){
+//            val result = ""
+//            for(i in point.length-1 downTo 0){
+//
+//            }
+//        } else {
+//            return point
+//        }
         var result: String = ""
         var pointResult: String = ""
-        for(i in point.length downTo 0){
+        for(i in point.length-1 downTo 0){
             if(i != 0 && i % 3 == 0){
                 result = "$result,"
             }
             result += point[i]
         }
-        for(i in result.length downTo 0){
+        for(i in result.length - 1 downTo 0){
             pointResult += result[i]
         }
         return pointResult

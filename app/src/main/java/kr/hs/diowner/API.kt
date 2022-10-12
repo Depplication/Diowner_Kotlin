@@ -2,10 +2,7 @@ package kr.hs.diowner
 
 import kr.hs.diowner.data.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface API {
     @POST("owner/sign-up")
@@ -16,4 +13,10 @@ interface API {
 
     @GET("owner/{id}")
     fun getOwnerData(@Path("id") id: Int): Call<OwnerResponseData>
+
+    @POST("advertising/")
+    fun postAdvertising(@Body postAdvertisingData: PostAdvertisingData) : Call<AdvertisingResponseData>
+
+    @PATCH("owner/{id}")
+    fun modifyOwner(@Path("id") id: Int, @Body ownerData: OwnerData) : Call<OwnerResponseData>
 }

@@ -32,7 +32,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        App.prefs = Prefs(applicationContext)
         setting()
         settingListener()
     }
@@ -43,15 +42,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         binding.JoinText.paintFlags = Paint.UNDERLINE_TEXT_FLAG
     }
 
-    /*private fun settingText(){
-        JoinText.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-
-        val ssb = SpannableStringBuilder("Diowner")
-        ssb.apply {
-            setSpan(ForegroundColorSpan(getColor(R.color.MainColor)), 0,1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        }
-        MainTitle.text = ssb
-    }*/
     private fun settingListener() {
         LoginBtn.setOnClickListener(this)
         JoinText.setOnClickListener(this)
@@ -60,7 +50,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             LoginBtn -> {
-                //TODO 로그인 구현
                 val data = OwnerLoginData(binding.IdET.text.toString(), binding.PwET.text.toString())
                 LoginPost(data)
             }
@@ -84,10 +73,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     var data = response.body() // GsonConverter를 사용해 데이터매핑
                     App.prefs.token = data!!.tokenData.token
                     App.prefs.id = data.ownerData.id
+                    App.prefs.name = data.ownerData.name
+                    App.prefs.point = data.ownerData.point
                     val intent = Intent(applicationContext, MainActivity::class.java)
                     finish()
                     startActivity(intent)
-                    //Log.d("testasd", data)
                 }
             }
 

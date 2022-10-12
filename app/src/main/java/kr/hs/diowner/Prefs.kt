@@ -17,4 +17,17 @@ class Prefs(context: Context) {
         set(value) {
             prefs.edit().putInt("id", value).apply()
         }
+    var name: String?
+        get() = prefs.getString("name", null)
+        set(value) {
+            prefs.edit().putString("name", value).apply()
+        }
+    var point: Int
+        get() = prefs.getInt("point", 0)
+        set(value) {
+            prefs.edit().putInt("point", value).apply()
+        }
+
+
+
 }
