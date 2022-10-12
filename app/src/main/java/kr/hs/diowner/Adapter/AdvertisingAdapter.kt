@@ -1,6 +1,5 @@
 package kr.hs.diowner.Adapter
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +8,7 @@ import kr.hs.diowner.RegisterActivity
 import kr.hs.diowner.data.AdvertisingData
 import kr.hs.diowner.databinding.MyAdListBinding
 
-class AdvertisingAdapter(val context: Context) :
+class AdvertisingAdapter(val action: AdvertisingAction) :
     RecyclerView.Adapter<AdvertisingAdapter.MyViewHolder>() {
     var dataList = mutableListOf<AdvertisingData>()
 
@@ -18,13 +17,10 @@ class AdvertisingAdapter(val context: Context) :
         fun bind(data: AdvertisingData) {
             binding.title.text = data.title.toString()
             binding.modify.setOnClickListener {
-                //TODO 수정 구현
-                Intent(context, RegisterActivity::class.java).apply {
-                    putExtra("data", data)
-                }.run { context.startActivity(this) }
+                action.onClickModify(data)
             }
             binding.trashcan.setOnClickListener {
-                //TODO 삭제 구현
+                action.onClickTrashCan()
             }
         }
     }
@@ -38,5 +34,10 @@ class AdvertisingAdapter(val context: Context) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(dataList[position])
+    }
+
+    interface AdvertisingAction {
+        fun onClickModify(data: AdvertisingData)
+        fun onClickTrashCan()
     }
 }

@@ -9,7 +9,7 @@ import kr.hs.diowner.Adapter.AdvertisingAdapter
 import kr.hs.diowner.data.AdvertisingData
 import kr.hs.diowner.databinding.ActivityMyAdBinding
 
-class MyAdActivity : AppCompatActivity(), View.OnClickListener {
+class MyAdActivity : AppCompatActivity(), View.OnClickListener, AdvertisingAdapter.AdvertisingAction {
     private lateinit var binding: ActivityMyAdBinding
     private val mDatas = mutableListOf<AdvertisingData>(
         AdvertisingData("안녕하세요"),
@@ -48,6 +48,17 @@ class MyAdActivity : AppCompatActivity(), View.OnClickListener {
         adapter.dataList = mDatas
         binding.myAdRecycler.adapter = adapter
         binding.myAdRecycler.layoutManager = LinearLayoutManager(this)
+    }
+
+    override fun onClickModify(data: AdvertisingData) {
+        //TODO 수정 구현
+        Intent(this, RegisterActivity::class.java).apply {
+            putExtra("data", data)
+        }.run { startActivity(this) }
+    }
+
+    override fun onClickTrashCan() {
+        // TODO 삭제 구현
     }
 
     private fun addDataRecyclerView() {
