@@ -257,11 +257,11 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                 binding.businessNumET.text.toString(),
                 check_category,
                 binding.mailET.text.toString(),
-                binding.tvEndDay.text.toString(),
+                "2022-10-15T14:35:16.807Z",
                 binding.storeEt.text.toString(),
                 binding.representET.text.toString(),
                 arrayListOf(ProductData("test", 1000), ProductData("test", 1000)),
-                binding.tvStartDay.text.toString(),
+                "2022-10-14T14:35:16.807Z",
                 "상점 이름",
                 binding.StNameET.text.toString(),
                 check_event

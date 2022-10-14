@@ -18,7 +18,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.regex.Pattern
 
-class JoinActivity2 : AppCompatActivity() {
+class JoinActivity2 : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityJoin2Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,26 +26,7 @@ class JoinActivity2 : AppCompatActivity() {
         binding = ActivityJoin2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
-        val name = intent.getStringExtra("name").toString()
-        val id = intent.getStringExtra("id").toString()
-        val pw = intent.getStringExtra("PW").toString()
-        val shop = intent.getStringExtra("SHOP").toString()
-
-        binding.JoinBtn1.setOnClickListener{
-            val pn = binding.userPNum1.text.toString()
-            val add = binding.userAdd1.text.toString()
-            val bank = binding.userBank1.text.toString()
-            val acn = binding.Acn1.text.toString()
-
-            Log.d("JOINTAG", id)
-            Log.d("JOINTAG", pw)
-
-            val data = OwnerData(add, name, pn, id, pw, shop)
-
-            JoinPost(data)
-        }
+        settingListener()
 
 
     }
@@ -70,10 +51,43 @@ class JoinActivity2 : AppCompatActivity() {
         })
     }
 
-    private fun intent(){
+    private fun intent() {
         val intent = Intent(this, LoginActivity::class.java)
         finishAffinity()
         startActivity(intent)
+    }
+
+    private fun settingListener() {
+        binding.JoinBtn1.setOnClickListener(this)
+        binding.backBtn.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        when (v) {
+            binding.JoinBtn1 -> {
+                val name = intent.getStringExtra("name").toString()
+                val id = intent.getStringExtra("id").toString()
+                val pw = intent.getStringExtra("PW").toString()
+                val shop = intent.getStringExtra("SHOP").toString()
+
+                val pn = binding.userPNum1.text.toString()
+                val add = binding.userAdd1.text.toString()
+                val bank = binding.userBank1.text.toString()
+                val acn = binding.Acn1.text.toString()
+
+                Log.d("JOINTAG", id)
+                Log.d("JOINTAG", pw)
+
+                val data = OwnerData(add, name, pn, id, pw, shop)
+
+                JoinPost(data)
+
+            }
+            binding.backBtn -> {
+                finish()
+            }
+        }
+
     }
 
 

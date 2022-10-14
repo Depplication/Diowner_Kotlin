@@ -26,6 +26,7 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun settingListener() {
         binding.NextBtn1.setOnClickListener(this)
+        binding.backBtn.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -36,9 +37,11 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
                     putExtra("id", binding.userId1.text.toString())
                     putExtra("PW", binding.userPW1.text.toString())
                     putExtra("SHOP", binding.userSHOP1.text.toString())
-                    finish()
                     startActivity(this)
                 }
+            }
+            binding.backBtn -> {
+                finish()
             }
         }
     }
